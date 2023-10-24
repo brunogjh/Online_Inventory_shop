@@ -1,6 +1,35 @@
 <?php
 include 'header.php';
 ?>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  margin: 1%;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body{
+	width: 100%;
+	max-width: 100%;
+}
+</style>
+
      <script id="jsbin-javascript">
 (function (global) {
 	if(typeof (global) === "undefined")
@@ -86,8 +115,44 @@ include 'header.php';
 						<!-- /store products -->
 
 						<!-- store bottom filter -->
-						<div class="store-filter clearfix">
+						<div class="store-filter clearfix" >
 							<span class="store-qty">Showing 20-100 products</span>
+							<div class="row">
+								<div class="column" style="background-color:#aaa;">
+									<div >
+										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
+										<div class="container">
+											<h4><b>Dress shirt</b></h4>
+											<div class='add-to-cart'>
+												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column" style="background-color:#bbb;">
+									<div >
+										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
+										<div class="container">
+											<h4><b>Dress shirt</b></h4>
+											<div class='add-to-cart'>
+												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="column" style="background-color:#aaa;">
+									<div >
+										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
+										<div class="container">
+											<h4><b>Dress shirt</b></h4>
+											<div class='add-to-cart'>
+												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
 							<ul class="store-pagination" id="pageno">
 								<li ><a class="active" href="#aside">1</a></li>
 								
