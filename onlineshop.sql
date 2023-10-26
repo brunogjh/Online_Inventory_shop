@@ -243,12 +243,20 @@ CREATE TABLE `products` (
   `product_brand` int(100) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_price` int(100) NOT NULL,
-  `product_desc` text NOT NULL,
-  `product_image` text NOT NULL,
-  `product_keywords` text NOT NULL,
+  `product_desc` text,
+  `product_image` text,
+  `product_keywords` text,
   `qty` int(100) NOT NULL,
-  `product_discount` varchar(100) NOT NULL
+  `product_discount` varchar(100),
+  `product_type` varchar(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `qty`, `product_type`) VALUES
+(1, 1, 1, 'Adidas Men T-Shirt', 100, 'Adidas Men T-Shirt', 'img/adidas_men_tshirt_1.webp', 'Adidas', 100, "Men"),
+(2, 1, 2, 'Nike Men T-Shirt', 100, 'Nike Men T-Shirt', 'img/nike_men_tshirt_1.webp', 'Nike', 100, "Men"),
+(3, 1, 1, 'Adidas Women T-Shirt', 100, 'Adidas Women T-Shirt', 'img/adidas_women_tshirt_1.jpg', 'Adidas', 100, "Women"),
+(4, 3, 2, 'Nike Women Leggings', 100, 'Nike Women Leggings', 'img/nike_women_leggings_1.webp', 'Nike', 100, "Women");
+
 
 -- --------------------------------------------------------
 
