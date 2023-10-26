@@ -53,7 +53,7 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(6, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'admin@gmail.com', 'adminpassword');
 
 -- --------------------------------------------------------
 
@@ -308,7 +308,10 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`, `last_login`, `last_logout`) VALUES
-(26, 'nikhil', 'k', 'nikhil@gmail.com', 'nikhilkeshav', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM');
+(26, 'nikhil', 'k', 'nikhil@gmail.com', 'nikhilkeshav', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM'),
+(27, 'rhys', 'tan', 'rhystan3@gmail.com', 'rhyspassword', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM'),
+(28, 'dom', 'teow', 'dominicteow@gmail.com', 'dompassword', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM')
+;
 
 --
 -- Triggers `user_info`
