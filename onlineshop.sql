@@ -21,6 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `onlineshop`
 --
+-- Create the 'onlineshop' database
+DROP DATABASE IF EXISTS onlineshop;
+
+CREATE DATABASE IF NOT EXISTS onlineshop;
+USE onlineshop;
 
 DELIMITER $$
 --
@@ -66,11 +71,11 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
-(1, 'HP'),
-(2, 'Samsung'),
-(3, 'Apple'),
-(4, 'motorolla'),
-(5, 'LG');
+(1, 'Adidas'),
+(2, 'Nike'),
+(3, 'Under Armour'),
+(4, 'Puma'),
+(5, 'Others');
 
 -- --------------------------------------------------------
 
@@ -127,10 +132,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
-(1, 'Laptops'),
-(2, 'Smartphones'),
-(3, 'Cameras'),
-(4, 'Accessories'),
+(1, 'T-Shirts'),
+(2, 'Shorts'),
+(3, 'Leggings'),
+(4, 'Shoes'),
 (5, 'Others');
 
 -- --------------------------------------------------------
