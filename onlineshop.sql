@@ -252,10 +252,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `qty`, `product_type`) VALUES
-(1, 1, 1, 'Adidas Men T-Shirt', 100, 'Adidas Men T-Shirt', 'img/adidas_men_tshirt_1.webp', 'Adidas', 100, "Men"),
-(2, 1, 2, 'Nike Men T-Shirt', 100, 'Nike Men T-Shirt', 'img/nike_men_tshirt_1.webp', 'Nike', 100, "Men"),
-(3, 1, 1, 'Adidas Women T-Shirt', 100, 'Adidas Women T-Shirt', 'img/adidas_women_tshirt_1.jpg', 'Adidas', 100, "Women"),
-(4, 3, 2, 'Nike Women Leggings', 100, 'Nike Women Leggings', 'img/nike_women_leggings_1.webp', 'Nike', 100, "Women");
+(1, 1, 1, 'Adidas Men T-Shirt', 100, 'Adidas Men T-Shirt', 'img/mens/adidas_men_tshirt_1.webp', 'Adidas', 100, "Men"),
+(2, 1, 2, 'Nike Men T-Shirt', 100, 'Nike Men T-Shirt', 'img/mens/nike_men_tshirt_1.webp', 'Nike', 100, "Men"),
+(3, 1, 1, 'Adidas Women T-Shirt', 100, 'Adidas Women T-Shirt', 'img/womens/adidas_women_tshirt_1.jpg', 'Adidas', 100, "Women"),
+(4, 3, 2, 'Nike Women Leggings', 100, 'Nike Women Leggings', 'img/womens/nike_women_leggings_1.webp', 'Nike', 100, "Women");
 
 
 -- --------------------------------------------------------
