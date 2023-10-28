@@ -1,11 +1,5 @@
 <?php
-$envFile = __DIR__ . 'properties.env';  // Specify the path to your .env file
-if (file_exists($envFile)) {
-    $env = parse_ini_file($envFile, false, INI_SCANNER_RAW);
-    foreach ($env as $key => $value) {
-        $_ENV[$key] = $value;
-    }
-}
+
 class CacheService {
     private $redis;
 
@@ -17,7 +11,7 @@ class CacheService {
         $this->redis->connect($redisHost, $redisPort);// Use the actual connection details for your ElastiCache cluster
     }
 
-    public function getFromCacheOrDatabase($query, $callback) {
+    public function getFromCacheOrDatabase($query, $callback, $ttl = 3600) {
         // convert query into key
         $key = md5($query);
         // Check if the data is in the cache
@@ -30,7 +24,7 @@ class CacheService {
             $data = $callback();
 
             // Store the fetched data in the cache for future use
-            $this->redis->set($key, json_encode($data));
+            $this->redis->set($key, $ttl, json_encode($data));
 
             return $data;
         }

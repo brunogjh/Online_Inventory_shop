@@ -2,11 +2,18 @@
 session_start();
 $ip_add = getenv("REMOTE_ADDR");
 include "db.php";
-
+require "cache.php";
+$cacheService = new CacheService();
 if(isset($_POST["categoryhome"])){
 	$category_query = "SELECT * FROM categories WHERE cat_id!=1";
-    
-	$run_query = mysqli_query($con,$category_query) or die(mysqli_error($con));
+	// Define a callback function that fetches data from RDS if not found in the cache
+	$callback = function () use ($con, $category_query) {
+		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
+		echo"<h1> wassup</h1>";
+		return $run_query;
+	};
+
+	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $callback);
 	echo "
 		
 				<!-- responsive-nav -->
