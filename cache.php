@@ -8,7 +8,11 @@ class CacheService {
         $this->redis = new Redis();
         $redisHost = $_ENV['REDIS_HOST'];
         $redisPort = $_ENV['REDIS_PORT'];
-        $this->redis->connect($redisHost, $redisPort);// Use the actual connection details for your ElastiCache cluster
+        if ($this->redis->connect($redisHost, $redisPort)) {
+            echo "Connected to Redis successfully.";
+        } else {
+            echo "Failed to connect to Redis.";
+        }
     }
 
     public function getFromCacheOrDatabase($query, $callback, $ttl = 3600) {

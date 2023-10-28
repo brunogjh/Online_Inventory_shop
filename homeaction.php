@@ -6,6 +6,7 @@ require "cache.php";
 $cacheService = new CacheService();
 if(isset($_POST["categoryhome"])){
 	$category_query = "SELECT * FROM categories WHERE cat_id!=1";
+
 	// Define a callback function that fetches data from RDS if not found in the cache
 	$callback = function () use ($con, $category_query) {
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
@@ -13,7 +14,6 @@ if(isset($_POST["categoryhome"])){
 		return $run_query;
 	};
 
-	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $callback);
 	echo "
 		
 				<!-- responsive-nav -->
@@ -24,6 +24,7 @@ if(isset($_POST["categoryhome"])){
 					<li><a href='store.php'>Womens</a></li>
 					
 	";
+	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $callback);
 	if(mysqli_num_rows($run_query) > 0){
 		while($row = mysqli_fetch_array($run_query)){
 			$cid = $row["cat_id"];
