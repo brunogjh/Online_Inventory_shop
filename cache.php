@@ -6,12 +6,16 @@ class CacheService {
     public function __construct() {
         // Initialize your Redis connection
         $this->redis = new Redis();
-        $redisHost = $REDIS_HOST;
-        $redisPort = $REDIS_PORT;
-        if ($this->redis->connect($redisHost, $redisPort)) {
+        $redisHost = $_SERVER['REDIS_HOST'];
+        $redisPort = $_SERVER['REDIS_PORT'];
+        echo $_SERVER['REDIS_HOST'];
+        echo $_SERVER['REDIS_PORT'];
+
+        try {
+            $this->redis->connect($redisHost, $redisPort);
             echo "Connected to Redis successfully.";
-        } else {
-            echo "Failed to connect to Redis.";
+        } catch (RedisException $e) {
+            echo "Failed to connect to Redis: " . $e->getMessage();
         }
     }
 
