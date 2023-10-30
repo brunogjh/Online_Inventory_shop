@@ -5,7 +5,7 @@ class CacheService {
 
     public function __construct() {
         // read env filezzz
-        $envFilePath = __DIR__ . '/properties.env';
+        $envFilePath = __DIR__ . '../properties.env';
 
         if (file_exists($envFilePath)) {
             $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
