@@ -4,12 +4,26 @@ class CacheService {
     private $redis;
 
     public function __construct() {
+        // read env filezzz
+        $envFilePath = __DIR__ . '/properties.env';
+
+        if (file_exists($envFilePath)) {
+            $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                list($key, $value) = explode('=', $line, 2);
+                $key = trim($key);
+                $value = trim($value);
+                putenv("$key=$value");
+                $_ENV[$key] = $value;
+                $_SERVER[$key] = $value;
+            }
+        }
         // Initialize your Redis connection
         $this->redis = new Redis();
         $redisHost = $_ENV['REDIS_HOST'];
         $redisPort = $_ENV['REDIS_PORT'];
-        echo $_SERVER['REDIS_HOST'];
-        echo $_SERVER['REDIS_PORT'];
+        echo $_ENV['REDIS_HOST'];
+        echo $_ENV['REDIS_PORT'];
 
         try {
             $this->redis->connect($redisHost, $redisPort);
