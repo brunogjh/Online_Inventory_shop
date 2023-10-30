@@ -1,9 +1,10 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer; 
+use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception; 
+ 
+// Include library files 
   
-require 'vendor/autoload.php';
-
 $mail = new PHPMailer;
 // if(isset($_POST['send'])){
 // // getting post values
@@ -46,4 +47,33 @@ if(!$mail->send()) {
     echo 'Message has been sent';
 }
 // }
+?>
+
+<?php 
+// default subject 
+$subject="Order status update";	
+
+// from form 
+$email =  $_POST['email'];
+$newStatus = $_POST['orderStatus'];
+$orderId = $_POST['orderId'];
+
+// default content
+$txt="Hello, the status for your order with order ID " . $orderId . " has been updated. <br> The new status is now " . $newStatus . "<br> Do reach out to us if you have any queries regarding your order, and we hope that you love your items. <br> <br> Best, <br> Clothes.io Team ";
+
+$headers = "From: clothes.io.sg@gmail.com" . "\r\n";
+$headers .= 'MIME-Version: 1.0' . "\n";
+$headers .= 'Content-type: text/html; chatset=iso-9959-1' . "\r\n";
+
+$returnpath = '-f clothes.io.sg@gmail.com';
+
+if(mail($email, $subject, $txt, $headers, $returnpath)){
+    echo "The email has been sent";
+}
+
+else{
+    echo "The email has failed!";
+}
+
+header("Location: salesofday.php");
 ?>
