@@ -46,7 +46,7 @@ include "topheader.php";
                 <div class="table-responsive ps">
                   <table class="table table-hover tablesorter " id="">
                     <thead class=" text-primary">
-                      <tr><th>order_id</th><th>Products</th><th>Contact | Email</th><th>Address</th><th>amount</th><th>Quantity</th>
+                      <tr><th style="width:5%">order_id</th><th>Products</th><th style="width:5%">Contact | Email</th><th>Address</th><th>amount</th><th>Quantity</th>
                     </tr></thead>
                     <tbody>
                       <?php
@@ -65,8 +65,12 @@ include "topheader.php";
                          $status = $row['status'];
 
                       ?>
+                      <form method="POST" action="sendemail.php"> 
                           <tr>
-                            <td><?php echo $order_id ?></td>
+                            <td style="width:5px">
+                            <input id='orderId' name='orderId' readonly value='<?php echo $order_id?>' />
+                            </td>
+                            
                            <td> <?php
                             $query1 = "SELECT * FROM order_products where order_id = $order_id";
                             $run1 = mysqli_query($con,$query1); 
@@ -79,17 +83,20 @@ include "topheader.php";
                                while($row2 = mysqli_fetch_array($run2)){
                                $product_title = $row2['product_title'];
                            ?>
+                           
                               <?php echo $product_title ?><br>
                             <?php }}?></td>
-                            <td><?php echo $email ?></td>
+
+                            <td style="width:5%">
+                                  <input id='email' name='email' readonly value='<?php echo $email?>' />
+                                </td>
+                            
                             <td><?php echo $address ?></td>
                             <td><?php echo $total_amount ?></td>
                             <td><?php echo $qty ?></td>
                             
-                              <form method="POST" action="sendemail.php">
-                                <td>
-                                  <input id='email' name='email' disabled value="<?php echo $email ?>" />
-                                </td>
+                              
+                                
                               <td>
                                 <select 
                                 name ='orderStatus'
@@ -123,31 +130,16 @@ include "topheader.php";
           
         </div>
       </div>
-<!-- <?php
-  if(isset($_POST['orderStatus'])){
-    $newStatus = $_POST['status'];
-    echo($newStatus);
-  }
-?> -->
+
 <?php
 include "footer.php";
 ?>
 
-<!-- <?php
-  if($_POST['orderStatus'] !== $status){
-    $newStatus = $_POST['status'];
-    echo($newStatus);
-  }
-?> -->
+<script>
 
-<!-- <script>
-function OnSelectionChange()
-{
-  console.log('hhhhhhhhhh');
-//  alert("OK IT WORKS");
+</script>
 
-}
-</script> -->
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/script.js"></script>
