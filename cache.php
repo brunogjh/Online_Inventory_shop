@@ -6,8 +6,8 @@ class CacheService {
     public function __construct() {
         // Initialize your Redis connection
         $this->redis = new Redis();
-        $redisHost = $_ENV['REDIS_HOST'];
-        $redisPort = $_ENV['REDIS_PORT'];
+        $redisHost = $_SYSTEM['REDIS_HOST'];
+        $redisPort = $_SYSTEM['REDIS_PORT'];
         if ($this->redis->connect($redisHost, $redisPort)) {
             echo "Connected to Redis successfully.";
         } else {
