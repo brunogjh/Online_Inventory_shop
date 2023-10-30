@@ -276,6 +276,8 @@ $(document).ready(function(){
 		})
 	}
 
+	
+
 	//Fetch Cart item from Database to dropdown menu
 
 	/*

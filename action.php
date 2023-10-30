@@ -460,7 +460,7 @@ if (isset($_POST["Common"])) {
 									<input type="hidden" name="cancel_return" value="http://localhost/myfiles/public_html/cancel.php"/>
 									<input type="hidden" name="currency_code" value="MYR"/>
 									<input type="hidden" name="custom" value="'.$_SESSION["uid"].'"/>
-									<input type="submit" id="submit" name="login_user_with_product" name="submit" class="btn btn-success" value="Ready to Checkout">
+									<input type="submit" id="submit" name="login_user_with_product" name="submit" class="btn btn-success" value="rhys Checkout">
 									</form></td>
 									
 									</tr>

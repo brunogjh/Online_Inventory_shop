@@ -83,12 +83,12 @@
                         </a>
                     </li>
 
-                    <li class="nav-item ">
+                    <!-- <li class="nav-item ">
                         <a class="nav-link" href="../../chat/login.php">
                             <i class="material-icons">notifications</i>
                             <p>Discussion</p>
                         </a>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>

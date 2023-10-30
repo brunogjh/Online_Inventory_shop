@@ -24,6 +24,11 @@ else
 $page1=($page*10)-10; 
 }
 
+if(isset($_POST['orderStatus'])){
+  $newStatus = $_POST['status'];
+  echo($newStatus);
+}
+
 include "sidenav.php";
 include "topheader.php";
 
@@ -57,6 +62,7 @@ include "topheader.php";
                          $total_amount = $row['total_amt'];
                          $user_id = $row['user_id'];
                          $qty = $row['prod_count'];
+                         $status = $row['status'];
 
                       ?>
                           <tr>
@@ -79,6 +85,26 @@ include "topheader.php";
                             <td><?php echo $address ?></td>
                             <td><?php echo $total_amount ?></td>
                             <td><?php echo $qty ?></td>
+                            
+                              <form method="POST" action="sendemail.php">
+                                <td>
+                                  <input id='email' name='email' disabled value="<?php echo $email ?>" />
+                                </td>
+                              <td>
+                                <select 
+                                name ='orderStatus'
+                                class='input-select'>
+                                  <option value="pending" <?php echo ($status=='pending') ? 'selected' : '' ?>>Pending</option>
+                                  <option value="packing" <?php echo ($status=='packing') ? 'selected' : '' ?>>Packing</option>
+                                  <option value="delivering" <?php echo ($status=='delivering') ? 'selected' : '' ?>>Delivering</option>
+                              </select>
+                               </td>
+                               <td>
+                               <button type="submit"  style="background:  #00bcd4;
+                                color: #fff;">Update status</button>
+                               </td>
+                            
+                            </form>
                          </tr>
                          <?php } ?>
                         
@@ -97,6 +123,31 @@ include "topheader.php";
           
         </div>
       </div>
-      <?php
+<!-- <?php
+  if(isset($_POST['orderStatus'])){
+    $newStatus = $_POST['status'];
+    echo($newStatus);
+  }
+?> -->
+<?php
 include "footer.php";
 ?>
+
+<!-- <?php
+  if($_POST['orderStatus'] !== $status){
+    $newStatus = $_POST['status'];
+    echo($newStatus);
+  }
+?> -->
+
+<!-- <script>
+function OnSelectionChange()
+{
+  console.log('hhhhhhhhhh');
+//  alert("OK IT WORKS");
+
+}
+</script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/script.js"></script>
