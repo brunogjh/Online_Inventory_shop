@@ -7,7 +7,7 @@ if (isset($_POST['re_password']))
     $email=$_SESSION['admin_email'];
 
   $old_pass = $_POST['old_pass'];
-  $op = md5($old_pass);
+  $op = $old_pass;
   $new_pass = $_POST['new_pass'];
   $re_pass = $_POST['re_pass'];
   $password_query = mysqli_query($con,"select * from admin_info where admin_email='$email'");
@@ -17,7 +17,7 @@ if (isset($_POST['re_password']))
     {
     if ($new_pass == $re_pass)
       {
-        $pass = md5($re_pass);
+        $pass = $re_pass;
       $update_pwd = mysqli_query($con,"UPDATE admin_info set admin_password='$pass' where admin_id='6'");
       echo "<script>alert('Update Sucessfully'); </script>";
       }

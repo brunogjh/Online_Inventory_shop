@@ -51,7 +51,7 @@ if (isset($_POST['reg_user'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-    $password = md5($password_1);//encrypt the password before saving in the database
+    $password = $password_1;//encrypt the password before saving in the database
 
     $query = "INSERT INTO admin_info (admin_name, admin_email, admin_password)
           VALUES('$username', '$email', '$password')";
@@ -81,14 +81,14 @@ if (isset($_POST['login_admin'])) {
   }
 
   if (count($errors) == 0) {
-    $password = md5($password);
+    $password = $password;
     $query = "SELECT * FROM admin_info WHERE admin_name='$admin_username' AND admin_password='$password'";
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
        $_SESSION['admin_email'] = $email;
       $_SESSION['admin_name'] = $admin_username;
       $_SESSION['success'] = "You are now logged in";
-      header('location: ./admin/');
+      header('location: index.php');
     }else {
       array_push($errors, "Wrong username/password combination");
     }

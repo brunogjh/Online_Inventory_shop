@@ -117,41 +117,6 @@ body{
 						<!-- store bottom filter -->
 						<div class="store-filter clearfix" >
 							<span class="store-qty">Showing 20-100 products</span>
-							<div class="row">
-								<div class="column" style="background-color:#aaa;">
-									<div >
-										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
-										<div class="container">
-											<h4><b>Dress shirt</b></h4>
-											<div class='add-to-cart'>
-												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="column" style="background-color:#bbb;">
-									<div >
-										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
-										<div class="container">
-											<h4><b>Dress shirt</b></h4>
-											<div class='add-to-cart'>
-												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="column" style="background-color:#aaa;">
-									<div >
-										<img src= './img/dress_shirt_PNG.png' style='width:80%' />
-										<div class="container">
-											<h4><b>Dress shirt</b></h4>
-											<div class='add-to-cart'>
-												<button pid='$pro_id' id='product' class='add-to-cart-btn block2-btn-towishlist' href='#'><i class='fa fa-shopping-cart'></i> add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
 							
 							<ul class="store-pagination" id="pageno">
 								<li ><a class="active" href="#aside">1</a></li>

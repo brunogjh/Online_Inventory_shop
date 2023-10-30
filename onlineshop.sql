@@ -21,6 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `onlineshop`
 --
+-- Create the 'onlineshop' database
+DROP DATABASE IF EXISTS onlineshop;
+
+CREATE DATABASE IF NOT EXISTS onlineshop;
+USE onlineshop;
 
 DELIMITER $$
 --
@@ -48,7 +53,7 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(6, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', 'admin@gmail.com', 'adminpassword');
 
 -- --------------------------------------------------------
 
@@ -66,11 +71,11 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`brand_id`, `brand_title`) VALUES
-(1, 'HP'),
-(2, 'Samsung'),
-(3, 'Apple'),
-(4, 'motorolla'),
-(5, 'LG');
+(1, 'Adidas'),
+(2, 'Nike'),
+(3, 'Under Armour'),
+(4, 'Puma'),
+(5, 'Others');
 
 -- --------------------------------------------------------
 
@@ -127,10 +132,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
-(1, 'Laptops'),
-(2, 'Smartphones'),
-(3, 'Cameras'),
-(4, 'Accessories'),
+(1, 'T-Shirts'),
+(2, 'Shorts'),
+(3, 'Leggings'),
+(4, 'Shoes'),
 (5, 'Others');
 
 -- --------------------------------------------------------
@@ -150,8 +155,8 @@ CREATE TABLE `email_info` (
 
 INSERT INTO `email_info` (`email_id`, `email`) VALUES
 (3, 'admin@gmail.com'),
-(4, 'puneethreddy951@gmail.com'),
-(5, 'puneethreddy@gmail.com');
+(4, 'dominicteow.2020@scis.smu.edu.sg'),
+(5, 'rhys.tan.2020@scis.smu.edu.sg');
 
 -- --------------------------------------------------------
 
@@ -209,8 +214,22 @@ CREATE TABLE `orders_info` (
   `expdate` varchar(255) NOT NULL,
   `prod_count` int(15) DEFAULT NULL,
   `total_amt` int(15) DEFAULT NULL,
-  `cvv` int(5) NOT NULL
+  `cvv` int(5) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders_info`
+--
+
+INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`,   `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`) VALUES
+(1, 27, 'rhys', 'rhystan3@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 2, 100, 211, 'pending'),
+(2, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'packing'),
+(3, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'delivering');
+
+
+-- --------------------------------------------------------
+
 
 -- --------------------------------------------------------
 
@@ -238,12 +257,20 @@ CREATE TABLE `products` (
   `product_brand` int(100) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_price` int(100) NOT NULL,
-  `product_desc` text NOT NULL,
-  `product_image` text NOT NULL,
-  `product_keywords` text NOT NULL,
+  `product_desc` text,
+  `product_image` text,
+  `product_keywords` text,
   `qty` int(100) NOT NULL,
-  `product_discount` varchar(100) NOT NULL
+  `product_discount` varchar(100),
+  `product_type` varchar(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `qty`, `product_type`) VALUES
+(1, 1, 1, 'Adidas Men T-Shirt', 100, 'Adidas Men T-Shirt', '/mens/adidas_men_tshirt_1.webp', 'Adidas', 100, "Men"),
+(2, 1, 2, 'Nike Men T-Shirt', 100, 'Nike Men T-Shirt', '/mens/nike_men_tshirt_1.jpg', 'Nike', 100, "Men"),
+(3, 1, 1, 'Adidas Women T-Shirt', 100, 'Adidas Women T-Shirt', '/womens/adidas_women_tshirt_1.jpg', 'Adidas', 100, "Women"),
+(4, 3, 2, 'Nike Women Leggings', 100, 'Nike Women Leggings', '/womens/nike_women_leggings_1.webp', 'Nike', 100, "Women");
+
 
 -- --------------------------------------------------------
 
@@ -295,7 +322,10 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`, `last_login`, `last_logout`) VALUES
-(26, 'nikhil', 'k', 'nikhil@gmail.com', 'nikhilkeshav', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM');
+(26, 'nikhil', 'k', 'nikhil@gmail.com', 'nikhilkeshav', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM'),
+(27, 'rhys', 'tan', 'rhystan3@gmail.com', 'rhyspassword', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM'),
+(28, 'dom', 'teow', 'dominicteow@gmail.com', 'dompassword', '9964716807', 'mysore', 'mysore', 'Feb,20,2020 02:26:18 PM', 'Feb,18,2020 05:53:29 PM')
+;
 
 --
 -- Triggers `user_info`
