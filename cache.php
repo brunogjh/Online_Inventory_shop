@@ -6,8 +6,7 @@ use Aws\S3\S3Client;
 class CacheService {
     private $redis;
 
-    public function __construct() {
-        
+    public function __construct() {    
         // read env filezzz
         // $envFilePath = __DIR__ . '/var/www/properties.env';
 
@@ -41,16 +40,21 @@ class CacheService {
         $config = parse_ini_string($configContents);
 
         // Initialize your Redis connection
-        $this->redis = new Redis();
-        $redisHost = $config['REDIS_HOST'];
-        $redisPort = $config['REDIS_PORT'];
+        // Use Predis for Redis cluster support
+        $this->redis = new Predis\Client([
+            'scheme' => 'tcp',
+            'host'   => $config['REDIS_HOST'],
+            'port'   => $config['REDIS_PORT'],
+        ]);
+        // $redisHost = $config['REDIS_HOST'];
+        // $redisPort = $config['REDIS_PORT'];
         echo $config['REDIS_HOST'];
         echo $config['REDIS_PORT'];
 
         try {
-            $this->redis->connect($redisHost, $redisPort);
+            $this->redis->connect();
             echo "Connected to Redis successfully.";
-        } catch (RedisException $e) {
+        } catch (Exception $e) {
             echo "Failed to connect to Redis: " . $e->getMessage();
         }
     }
@@ -70,7 +74,7 @@ class CacheService {
             $data = $callback();
 
             // Store the fetched data in the cache for future use
-            $this->redis->set($key, $ttl, json_encode($data));
+            $this->redis->set($key, json_encode($data), 'EX', $ttl);
 
             return $data;
         }

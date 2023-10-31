@@ -1,5 +1,6 @@
 {
   "require": {
-    "aws/aws-sdk-php": "dev-master"
+    "aws/aws-sdk-php": "dev-master",
+    "predis/predis": "^1.1"
   }
 }
