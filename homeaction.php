@@ -63,6 +63,17 @@ if(isset($_POST["categoryhome"])){
         } else {
             echo "No rows found in the result set.";
             // Handle the case when no rows are found
+			foreach ($run_query as $rows){
+				$cid = $row["cat_id"];
+                $cat_name = $row["cat_title"];
+
+                $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+                $query = mysqli_query($con, $sql);
+                $row = mysqli_fetch_array($query);
+                $count = $row["count_items"];
+
+                echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
+			}
         }
     } else {
         echo "Unable to retrieve data from the cache or database.";
