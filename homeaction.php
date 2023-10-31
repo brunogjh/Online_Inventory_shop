@@ -25,20 +25,41 @@ if(isset($_POST["categoryhome"])){
 					
 	";
 	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $callback);
-	if(mysqli_num_rows($run_query) > 0){
-		while($row = mysqli_fetch_array($run_query)){
-			$cid = $row["cat_id"];
-			$cat_name = $row["cat_title"];
+	// if(mysqli_num_rows($run_query) > 0){
+	// 	while($row = mysqli_fetch_array($run_query)){
+	// 		$cid = $row["cat_id"];
+	// 		$cat_name = $row["cat_title"];
             
-            $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-            $query = mysqli_query($con,$sql);
-            $row = mysqli_fetch_array($query);
-            $count=$row["count_items"];
+    //         $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+    //         $query = mysqli_query($con,$sql);
+    //         $row = mysqli_fetch_array($query);
+    //         $count=$row["count_items"];
             
             
             
-			echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
-		}
+	// 		echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
+	// 	}
+	if ($run_query) {
+        if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
+            while ($row = mysqli_fetch_array($run_query)) {
+                $cid = $row["cat_id"];
+                $cat_name = $row["cat_title"];
+
+                $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+                $query = mysqli_query($con, $sql);
+                $row = mysqli_fetch_array($query);
+                $count = $row["count_items"];
+
+                echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
+            }
+        } else {
+            echo "No rows found in the result set.";
+            // Handle the case when no rows are found
+        }
+    } else {
+        echo "Unable to retrieve data from the cache or database.";
+        // Handle the case when data retrieval fails
+    }
         
 		echo "</ul>
 					<!-- /NAV -->
