@@ -39,6 +39,14 @@ if(isset($_POST["categoryhome"])){
             
 	// 		echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
 	// 	}
+        
+	// 	echo "</ul>
+	// 				<!-- /NAV -->
+	// 			</div>
+	// 			<!-- /responsive-nav -->
+               
+	// 		";
+	// }
 	if ($run_query) {
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
@@ -60,14 +68,6 @@ if(isset($_POST["categoryhome"])){
         echo "Unable to retrieve data from the cache or database.";
         // Handle the case when data retrieval fails
     }
-        
-		echo "</ul>
-					<!-- /NAV -->
-				</div>
-				<!-- /responsive-nav -->
-               
-			";
-	}
 }
 
 
