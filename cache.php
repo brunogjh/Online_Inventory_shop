@@ -70,7 +70,7 @@ class CacheService {
             $data = $callback();
 
             // Store the fetched data in the cache for future use
-            $this->redis->set($key, json_encode($data), 'EX', $ttl);
+            $this->redis->set($key, json_encode($data), $ttl);
 
             return $data;
         }
