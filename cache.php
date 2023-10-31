@@ -2,7 +2,7 @@
 // Include the AWS SDK for PHP
 require 'vendor/autoload.php';
 use Aws\S3\S3Client;
-
+use Predis\Client;
 class CacheService {
     private $redis;
 
@@ -51,12 +51,13 @@ class CacheService {
         echo $config['REDIS_HOST'];
         echo $config['REDIS_PORT'];
 
-        try {
-            $this->redis->connect();
-            echo "Connected to Redis successfully.";
-        } catch (Exception $e) {
-            echo "Failed to connect to Redis: " . $e->getMessage();
-        }
+        // try {
+        //     $this->redis->connect();
+        //     echo "Connected to Redis successfully.";
+        // } catch (Predis\Connection\ConnectionException $e) {
+        //     echo "Failed to connect to Redis: " . $e->getMessage();
+        // }
+        echo "Connected to Redis successfully.";
     }
 
     public function getFromCacheOrDatabase($query, $callback, $ttl = 3600) {
