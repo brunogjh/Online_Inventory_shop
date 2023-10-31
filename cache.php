@@ -1,28 +1,50 @@
 <?php
+// Include the AWS SDK for PHP
+require 'vendor/autoload.php';
+use Aws\S3\S3Client;
 
 class CacheService {
     private $redis;
 
     public function __construct() {
+        
         // read env filezzz
-        $envFilePath = __DIR__ . '/var/www/properties.env';
+        // $envFilePath = __DIR__ . '/var/www/properties.env';
 
-        if (file_exists($envFilePath)) {
-            $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            foreach ($lines as $line) {
-                list($key, $value) = explode('=', $line, 2);
-                $key = trim($key);
-                $value = trim($value);
-                putenv("$key=$value");
-                $_ENV[$key] = $value;
-                $_SERVER[$key] = $value;
-            }
-        }
+        // if (file_exists($envFilePath)) {
+        //     $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        //     foreach ($lines as $line) {
+        //         list($key, $value) = explode('=', $line, 2);
+        //         $key = trim($key);
+        //         $value = trim($value);
+        //         putenv("$key=$value");
+        //         $_ENV[$key] = $value;
+        //         $_SERVER[$key] = $value;
+        //     }
+        // }
+        $s3 = new S3Client([
+            'version'     => '2006-03-01',
+            'region'      => 'ap-southeast-1'
+        ]);
+
+        // Specify the S3 bucket and file path
+        $bucket = 'env-var-clothesio';
+        $filePath = 'properties.env';
+        
+        // Read the contents of the file from S3
+        $configContents = $s3->getObject([
+            'Bucket' => $bucket,
+            'Key'    => $filePath,
+        ])['Body']->getContents();
+
+        // Parse the contents as needed (e.g., into an array of key-value pairs)
+        $config = parse_ini_string($configContents);
+
         // Initialize your Redis connection
         $this->redis = new Redis();
-        $redisHost = $_ENV['REDIS_HOST'];
-        $redisPort = $_ENV['REDIS_PORT'];
-        echo $_ENV['REDIS_HOST'];
+        $redisHost = $config['REDIS_HOST'];
+        $redisPort = $config['REDIS_PORT'];
+        echo $config['REDIS_HOST'];
         echo $_ENV['REDIS_PORT'];
 
         try {
