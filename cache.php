@@ -19,7 +19,7 @@ class CacheService {
             }
         }
         // Initialize your Redis connection
-        $this->redis = new \Redis();
+        $this->redis = new Redis();
         $redisHost = $_ENV['REDIS_HOST'];
         $redisPort = $_ENV['REDIS_PORT'];
         echo $_ENV['REDIS_HOST'];
