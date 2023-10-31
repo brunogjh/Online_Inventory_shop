@@ -45,7 +45,7 @@ class CacheService {
         $redisHost = $config['REDIS_HOST'];
         $redisPort = $config['REDIS_PORT'];
         echo $config['REDIS_HOST'];
-        echo $_ENV['REDIS_PORT'];
+        echo $_config['REDIS_PORT'];
 
         try {
             $this->redis->connect($redisHost, $redisPort);
@@ -62,9 +62,11 @@ class CacheService {
         $cachedData = $this->redis->get($key);
 
         if ($cachedData !== false) {
+            echo "found in cache.";
             return json_decode($cachedData, true);
         } else {
             // Data not found in cache, execute the callback function to fetch it
+            echo "not found in cache.";
             $data = $callback();
 
             // Store the fetched data in the cache for future use
