@@ -62,15 +62,12 @@ class CacheService {
         $cachedData = $this->redis->get($key);
 
         if ($cachedData !== false) {
-            echo "found in cache.";
+            $this->debug_to_console("found in cache.");
             return json_decode($cachedData, true);
         } else {
             // Data not found in cache, execute the callback function to fetch it
-            echo "not found in cache.";
+            $this->debug_to_console("not found in cache.");
             $data = $callback();
-
-            echo"right below is";
-            print_r($data);
 
             // Store the fetched data in the cache for future use
             $this->redis->set($key, json_encode($data), $ttl);
