@@ -1,6 +1,6 @@
  <?php
 session_start();
-include("..db.php");
+include("../db.php");
 include "sidenav.php";
 include "topheader.php";
 if(isset($_POST['btn_save']))
