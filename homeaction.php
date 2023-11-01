@@ -36,10 +36,10 @@ if(isset($_POST["categoryhome"])){
                 $cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 
-                $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-                $query = mysqli_query($con, $sql);
-                $row = mysqli_fetch_array($query);
-                $count = $row["count_items"];
+                // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+                // $query = mysqli_query($con, $sql);
+                // $row = mysqli_fetch_array($query);
+                // $count = $row["count_items"];
 
                 echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
             }
@@ -49,10 +49,10 @@ if(isset($_POST["categoryhome"])){
 				$cid = $row[0];
                 $cat_name = $row[1];
 
-                $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-                $query = mysqli_query($con, $sql);
-                $row = mysqli_fetch_array($query);
-                $count = $row["count_items"];
+                // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+                // $query = mysqli_query($con, $sql);
+                // $row = mysqli_fetch_array($query);
+                // $count = $row["count_items"];
 
                 echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
 			}
@@ -61,6 +61,7 @@ if(isset($_POST["categoryhome"])){
         echo "Unable to retrieve data from the cache or database.";
         // Handle the case when data retrieval fails
     }
+	echo "</ul>";
 }
 
 
