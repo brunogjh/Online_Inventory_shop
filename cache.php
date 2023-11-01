@@ -31,8 +31,6 @@ class CacheService {
         $this->redis = new Redis();
         $redisHost = $config['REDIS_HOST'];
         $redisPort = $config['REDIS_PORT'];
-        echo $config['REDIS_HOST'];
-        echo $config['REDIS_PORT'];
 
         try {
             $this->redis->connect($redisHost, $redisPort);
