@@ -12,8 +12,8 @@ if(isset($_POST["categoryhome"])){
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
 		$dataArray = array();
 		while ($row = mysqli_fetch_array($run_query)) {
-			print_r($row);
-			$dataArray[] = $row;
+			
+			$dataArray[] = array($row["cat_id"], $row["cat_title"]);
 		}
 		return $dataArray;
 	};
