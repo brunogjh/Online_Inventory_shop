@@ -65,7 +65,8 @@ if(isset($_POST["categoryhome"])){
             }
         } else {
 			foreach ($run_query as $rows){
-				$cacheService->debug_to_console("$row from cache");
+				$row_details = print_r($row, true);
+				$cacheService->debug_to_console("$row_details from cache");
 				foreach($row as $item){
 					$cacheService->debug_to_console("$item from row from cache");
 				}
