@@ -52,8 +52,8 @@ $subject="Order status update";
 
 // from form 
 $email =  'rhystan3@gmail.com';
-$newStatus = $_POST['orderStatus'];
-$orderId = $_POST['orderId'];
+$newStatus = 'pending';
+$orderId = '2';
 
 // default content
 $txt="Hello, the status for your order with order ID " . $orderId . " has been updated. <br> The new status is now " . $newStatus . "<br> Do reach out to us if you have any queries regarding your order, and we hope that you love your items. <br> <br> Best, <br> Clothes.io Team ";
