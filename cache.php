@@ -8,19 +8,6 @@ class CacheService {
 
     public function __construct() {    
         // read env filezzz
-        // $envFilePath = __DIR__ . '/var/www/properties.env';
-
-        // if (file_exists($envFilePath)) {
-        //     $lines = file($envFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        //     foreach ($lines as $line) {
-        //         list($key, $value) = explode('=', $line, 2);
-        //         $key = trim($key);
-        //         $value = trim($value);
-        //         putenv("$key=$value");
-        //         $_ENV[$key] = $value;
-        //         $_SERVER[$key] = $value;
-        //     }
-        // }
         $s3 = new S3Client([
             'version'     => '2006-03-01',
             'region'      => 'ap-southeast-1'
@@ -42,6 +29,7 @@ class CacheService {
         // Initialize your Redis connection
         // Use Predis for Redis cluster support
         $this->redis = new Redis();
+        $this->$redis->flushAll();
         $redisHost = $config['REDIS_HOST'];
         $redisPort = $config['REDIS_PORT'];
         echo $config['REDIS_HOST'];
