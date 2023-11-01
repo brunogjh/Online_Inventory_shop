@@ -8,7 +8,7 @@ if(isset($_POST["categoryhome"])){
 	$category_query = "SELECT * FROM categories WHERE cat_id!=1";
 
 	// Define a callback function that fetches data from RDS if not found in the cache
-	$callback = function () use ($con, $category_query) {
+	$navbar_callback = function () use ($con, $category_query) {
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
 		$dataArray = array();
 		while ($row = mysqli_fetch_array($run_query)) {
@@ -28,29 +28,7 @@ if(isset($_POST["categoryhome"])){
 					<li><a href='store.php'>Womens</a></li>
 					
 	";
-	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $callback);
-	// if(mysqli_num_rows($run_query) > 0){
-	// 	while($row = mysqli_fetch_array($run_query)){
-	// 		$cid = $row["cat_id"];
-	// 		$cat_name = $row["cat_title"];
-            
-    //         $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-    //         $query = mysqli_query($con,$sql);
-    //         $row = mysqli_fetch_array($query);
-    //         $count=$row["count_items"];
-            
-            
-            
-	// 		echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
-	// 	}
-        
-	// 	echo "</ul>
-	// 				<!-- /NAV -->
-	// 			</div>
-	// 			<!-- /responsive-nav -->
-               
-	// 		";
-	// }
+	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $navbar_callback);
 	if ($run_query) {
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
@@ -67,8 +45,8 @@ if(isset($_POST["categoryhome"])){
             }
         } else {
 			foreach ($run_query as $rows){
-				$cid = $row["cat_id"];
-                $cat_name = $row["cat_title"];
+				$cid = $row[0];
+                $cat_name = $row[1];
 
                 $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
                 $query = mysqli_query($con, $sql);
