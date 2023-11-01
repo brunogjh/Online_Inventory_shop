@@ -29,7 +29,6 @@ class CacheService {
         // Initialize your Redis connection
         // Use Predis for Redis cluster support
         $this->redis = new Redis();
-        $this->$redis->flushAll();
         $redisHost = $config['REDIS_HOST'];
         $redisPort = $config['REDIS_PORT'];
         echo $config['REDIS_HOST'];
@@ -38,6 +37,11 @@ class CacheService {
         try {
             $this->redis->connect($redisHost, $redisPort);
             echo "Connected to Redis successfully.";
+            //empty cache
+            $keys = $this->redis->keys('*'); // Get all keys
+            foreach ($keys as $key) {
+                $this->redis->del($key); // Delete each key
+            }
         } catch (RedisException $e) {
             echo "Failed to connect to Redis: " . $e->getMessage();
         }
