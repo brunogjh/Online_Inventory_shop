@@ -60,7 +60,7 @@ $txt="Hello, the status for your order with order ID " . $orderId . " has been u
 
 $headers = "From: clothes.io.sg@gmail.com" . "\r\n";
 $headers .= 'MIME-Version: 1.0' . "\n";
-$headers .= 'Content-type: text/html; chatset=iso-9959-1' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 $returnpath = '-f clothes.io.sg@gmail.com';
 
