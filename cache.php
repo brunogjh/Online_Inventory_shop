@@ -68,8 +68,7 @@ class CacheService {
             // Data not found in cache, execute the callback function to fetch it
             echo "not found in cache.";
             $data = $callback();
-            $data_details = print_r($data, true);
-            $this->debug_to_console("$data_details from fetching from db..");
+            print_r($data);
 
             // Store the fetched data in the cache for future use
             $this->redis->set($key, json_encode($data), $ttl);
