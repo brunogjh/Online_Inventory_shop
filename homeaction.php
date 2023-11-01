@@ -44,7 +44,9 @@ if(isset($_POST["categoryhome"])){
                 echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
             }
         } else {
+			print_r($run_query);
 			foreach ($run_query as $rows){
+				
 				$cid = $row[0];
                 $cat_name = $row[1];
 
