@@ -50,6 +50,7 @@ if(isset($_POST["categoryhome"])){
 	if ($run_query) {
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
+				echo "$row from db<br>";
                 $cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 
@@ -64,6 +65,7 @@ if(isset($_POST["categoryhome"])){
             echo "No rows found in the result set.";
             // Handle the case when no rows are found
 			foreach ($run_query as $rows){
+				echo "$row from cache<br>";
 				$cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 
