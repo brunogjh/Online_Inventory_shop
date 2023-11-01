@@ -10,7 +10,11 @@ if(isset($_POST["categoryhome"])){
 	// Define a callback function that fetches data from RDS if not found in the cache
 	$callback = function () use ($con, $category_query) {
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
-		return $run_query;
+		$dataArray = array();
+		while ($row = mysqli_fetch_array($run_query)) {
+			$dataArray[] = $row;
+		}
+		return $dataArray;
 	};
 
 	echo "
