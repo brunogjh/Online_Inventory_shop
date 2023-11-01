@@ -10,7 +10,6 @@ if(isset($_POST["categoryhome"])){
 	// Define a callback function that fetches data from RDS if not found in the cache
 	$callback = function () use ($con, $category_query) {
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
-		echo"<h1> wassup</h1>";
 		return $run_query;
 	};
 
@@ -62,13 +61,11 @@ if(isset($_POST["categoryhome"])){
                 echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
             }
         } else {
-            echo "No rows found in the result set.";
-            // Handle the case when no rows are found
 			foreach ($run_query as $rows){
 				echo "$row from cache<br>";
-				foreach($row as $item){
-					echo "$item from row from cache <br>";
-				}
+				// foreach($row as $item){
+				// 	echo "$item from row from cache <br>";
+				// }
 				$cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 

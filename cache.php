@@ -63,7 +63,7 @@ class CacheService {
 
         if ($cachedData !== false) {
             echo "found in cache.";
-            return json_decode($cachedData, true);
+            return json_decode($cachedData);
         } else {
             // Data not found in cache, execute the callback function to fetch it
             echo "not found in cache.";
