@@ -49,9 +49,9 @@ if(isset($_POST["categoryhome"])){
 	if ($run_query) {
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
-				echo "$row from db<br>";
+				$cacheService->debug_to_console("$row from db");
 				foreach($row as $item){
-					echo "$item from row from db";
+					$cacheService->debug_to_console("$item from row from db");
 				}
                 $cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
@@ -65,10 +65,10 @@ if(isset($_POST["categoryhome"])){
             }
         } else {
 			foreach ($run_query as $rows){
-				echo "$row from cache<br>";
-				// foreach($row as $item){
-				// 	echo "$item from row from cache <br>";
-				// }
+				$cacheService->debug_to_console("$row from cache");
+				foreach($row as $item){
+					$cacheService->debug_to_console("$item from row from cache");
+				}
 				$cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 

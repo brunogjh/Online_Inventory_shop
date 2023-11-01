@@ -36,15 +36,23 @@ class CacheService {
 
         try {
             $this->redis->connect($redisHost, $redisPort);
-            echo "Connected to Redis successfully.";
-            //empty cache
-            $keys = $this->redis->keys('*'); // Get all keys
-            foreach ($keys as $key) {
-                $this->redis->del($key); // Delete each key
-            }
+            $this->debug_to_console("Connected to Redis successfully.");
+            // //empty cache
+            // $keys = $this->redis->keys('*'); // Get all keys
+            // foreach ($keys as $key) {
+            //     $this->redis->del($key); // Delete each key
+            // }
         } catch (RedisException $e) {
-            echo "Failed to connect to Redis: " . $e->getMessage();
+            $this->debug_to_console("Failed to connect to Redis: " . $e->getMessage());
         }
+    }
+
+    public function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
 
     public function getFromCacheOrDatabase($query, $callback, $ttl = 3600) {
