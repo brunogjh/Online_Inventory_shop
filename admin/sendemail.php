@@ -51,7 +51,7 @@ if(!$mail->send()) {
 $subject="Order status update";	
 
 // from form 
-$email =  $_POST['email'];
+$email =  'rhystan3@gmail.com';
 $newStatus = $_POST['orderStatus'];
 $orderId = $_POST['orderId'];
 
