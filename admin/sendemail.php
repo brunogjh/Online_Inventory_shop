@@ -1,4 +1,4 @@
-<?php
+<!-- 
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception; 
@@ -43,10 +43,10 @@ if(!$mail->send()) {
 } else {
     echo 'Message has been sent';
 }
-?>
+ -->
 
+ <?php
 
-<!-- 
 // default subject 
 $subject="Order status update";	
 
@@ -72,4 +72,5 @@ else{
     echo "The email has failed!";
 }
 
-header("Location: salesofday.php"); -->
+header("Location: salesofday.php"); 
+?>
