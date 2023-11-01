@@ -50,6 +50,9 @@ if(isset($_POST["categoryhome"])){
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
 				echo "$row from db<br>";
+				foreach($row as $item){
+					echo "$item from row from db";
+				}
                 $cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 
