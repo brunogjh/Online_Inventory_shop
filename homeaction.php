@@ -66,6 +66,9 @@ if(isset($_POST["categoryhome"])){
             // Handle the case when no rows are found
 			foreach ($run_query as $rows){
 				echo "$row from cache<br>";
+				foreach($row as $item){
+					echo "$item from row from cache <br>";
+				}
 				$cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 
