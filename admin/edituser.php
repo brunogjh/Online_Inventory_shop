@@ -1,7 +1,7 @@
 
     <?php
 session_start();
-include("./includes/db.php");
+include("..db.php");
 $user_id=$_REQUEST['user_id'];
 
 

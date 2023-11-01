@@ -1,10 +1,7 @@
-<?php
+<!-- 
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception; 
- 
-// Include library files 
-  
 $mail = new PHPMailer;
 // if(isset($_POST['send'])){
 // // getting post values
@@ -46,8 +43,8 @@ if(!$mail->send()) {
 } else {
     echo 'Message has been sent';
 }
-// }
-?>
+// } -->
+
 
 <?php 
 // default subject 

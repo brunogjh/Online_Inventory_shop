@@ -1,4 +1,4 @@
-<?php include("./server/server.php"); ?>
+<?php include("../server/server.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
