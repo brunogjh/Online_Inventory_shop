@@ -69,7 +69,7 @@ class CacheService {
             echo "not found in cache.";
             $data = $callback();
 
-            echo"right below is"
+            echo"right below is";
             print_r($data);
 
             // Store the fetched data in the cache for future use
