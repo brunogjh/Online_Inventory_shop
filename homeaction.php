@@ -54,9 +54,7 @@ if(isset($_POST["categoryhome"])){
         if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
             while ($row = mysqli_fetch_array($run_query)) {
 				$cacheService->debug_to_console("$row from db");
-				foreach($row as $item){
-					$cacheService->debug_to_console("$item from row from db");
-				}
+				print_r($row);
                 $cid = $row["cat_id"];
                 $cat_name = $row["cat_title"];
 

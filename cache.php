@@ -37,11 +37,11 @@ class CacheService {
         try {
             $this->redis->connect($redisHost, $redisPort);
             $this->debug_to_console("Connected to Redis successfully.");
-            // //empty cache
-            // $keys = $this->redis->keys('*'); // Get all keys
-            // foreach ($keys as $key) {
-            //     $this->redis->del($key); // Delete each key
-            // }
+            //empty cache
+            $keys = $this->redis->keys('*'); // Get all keys
+            foreach ($keys as $key) {
+                $this->redis->del($key); // Delete each key
+            }
         } catch (RedisException $e) {
             $this->debug_to_console("Failed to connect to Redis: " . $e->getMessage());
         }
