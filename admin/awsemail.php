@@ -67,7 +67,7 @@ try {
         ],
         // If you aren't using a configuration set, comment or delete the
         // following line
-        'ConfigurationSetName' => $configuration_set,
+        // 'ConfigurationSetName' => $configuration_set,
     ]);
     $messageId = $result['MessageId'];
     echo("Email sent! Message ID: $messageId"."\n");
