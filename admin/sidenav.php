@@ -1,10 +1,20 @@
 <?php
-
-//   if (!isset($_SESSION['admin_name'])) {
+include("includes/db.php");
+//   if (!isset($_SESSION['email'])) {
 //     $_SESSION['msg'] = "You must log in first";
 //     header('location: .././login.php');
 //   }
-  if (isset($_GET['logout'])) {
+//   if (isset($_GET['logout'])) {
+//      $email = $_SESSION['email'];
+//      $time = date("M,d,Y h:i:s A");
+//      $sql = "UPDATE `sup_info` SET `logout_time` = '$time' WHERE email = '$email'";
+//      $run_query2 = mysqli_query($con,$sql);
+//     session_destroy();
+//     unset($_SESSION['email']);
+//     header("location: ./login.php");
+//   }
+
+if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['admin_name']);
     header("location: ./login.php");
@@ -19,7 +29,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        TechShop|Admin
+        Techshop|suppliers
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -31,7 +41,7 @@
     <link href="assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="dark-edition">
+<body>
     <div class="wrapper ">
         <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
             <!--
@@ -39,62 +49,66 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-            <div class="logo"><a href="index.php" class="simple-text logo-normal">
-                    <img src="./assets/img/capture.png" style="width: 150px;">
+            <div class="logo">
+                <a href="index.php" class="simple-text logo-normal">
+                     <img src="assets/img/capture.png" style="width: 150px;">
                 </a></div>
-            <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="nav-item active  ">
-                        <a class="nav-link" href="index.php">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="addsuppliers.php">
-                            <i class="material-icons">person</i>
-                            <p>Add supliers</p>
-                        </a>
+                <div class="sidebar-wrapper">
+                    <ul class="nav">
+                        <li class="nav-item active  ">
+                            <a class="nav-link" href="index.php">
+                                <i class="material-icons">dashboard</i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="addproduct.php">
+                                <i class="material-icons">person</i>
+                                <p>Add product </p>
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="nav-item ">
+                            <a class="nav-link" href="orders.php">
+                                <i class="material-icons">timeline</i>
+                                <p>orders</p>
+                            </a>
+                        </li>
+                    
                         
-                    </li>
-                     <li class="nav-item ">
-                        <a class="nav-link" href="manageuser.php">
-                            <i class="material-icons">person</i>
-                            <p>Manage supliers</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-            <a class="nav-link" href="activity.php">
-              <i class="material-icons">timeline</i>
-              <p>Activities</p>
-            </a>
-          </li>
-                   
-                    <li class="nav-item ">
-                        <a class="nav-link" href="profile.php">
-                            <icons-image _ngcontent-aye-c22="" _nghost-aye-c19=""><i _ngcontent-aye-c19="" class="material-icons icon-image-preview">settings</i></icons-image>
-                            <p>setting</p>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="salesofday.php">
-                            <i class="material-icons">library_books</i>
-                            <p>sales</p>
-                        </a>
-                    </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="productlist.php">
+                                <i class="material-icons">library_books</i>
+                                <p>Product_List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="manageuser.php">
+                                <i class="material-icons">library_books</i>
+                                <p>Manage Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="inventory.php">
+                                <i class="material-icons">library_books</i>
+                                <p>Inventory</p>
+                            </a>
+                        </li>
 
-                    <!-- <li class="nav-item ">
-                        <a class="nav-link" href="../../chat/login.php">
-                            <i class="material-icons">notifications</i>
-                            <p>Discussion</p>
-                        </a>
-                    </li> -->
-                    <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
-                </ul>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="salesofday.php">
+                                <i class="material-icons">library_books</i>
+                                <p>sales</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="nav-link" href="profile.php">
+                                <icons-image _ngcontent-aye-c22="" _nghost-aye-c19=""><i _ngcontent-aye-c19="" class="material-icons icon-image-preview">settings</i></icons-image>
+                                <p>setting</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
