@@ -14,7 +14,7 @@ use Aws\Exception\AwsException;
 $SesClient = new SesClient([
     'profile' => 'default',
     'version' => '2010-12-01',
-    'region'  => 'us-west-2'
+    'region'  => 'ap-southeast-1'
 ]);
 
 // Replace sender@example.com with your "From" address.
@@ -26,8 +26,8 @@ $sender_email = 'clothes.io.sg@gmail.com';
 $recipient_emails = ['rhys.tan.2020@scis.smu.edu.sg'];
 
 // see if can get from the php file
-$newStatus = $_POST['orderStatus'];
-$orderId = $_POST['orderId'];
+$newStatus = 'packing';
+$orderId = '2';
 
 echo($newStatus);
 echo($orderId);
