@@ -12,7 +12,6 @@ use Aws\Exception\AwsException;
 // profile parameter if you want to use a profile in your credentials file
 // other than the default.
 $SesClient = new SesClient([
-    'profile' => 'default',
     'version' => '2010-12-01',
     'region'  => 'ap-southeast-1'
 ]);
