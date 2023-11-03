@@ -25,8 +25,10 @@ $sender_email = 'clothes.io.sg@gmail.com';
 $recipient_emails = ['rhys.tan.2020@scis.smu.edu.sg'];
 
 // see if can get from the php file
-$newStatus = 'packing';
-$orderId = '2';
+// $newStatus = 'packing';
+$newStatus = $_POST['orderStatus'];
+// $orderId = '2';
+$orderId = $_POST['orderId']
 
 echo($newStatus);
 echo($orderId);
