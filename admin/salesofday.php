@@ -110,9 +110,9 @@ include "topheader.php";
                                <button type="submit"  style="background:  #00bcd4;
                                 color: #fff;">Update status</button>
                                </td>
-                            
-                            </form>
+                        
                          </tr>
+                         </form>
                          <?php } ?>
                         
                     </tbody>
