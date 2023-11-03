@@ -1,7 +1,8 @@
 <?php
-
+include "../db.php";
 // If necessary, modify the path in the require statement below to refer to the 
 // location of your Composer autoload.php file.
+
 require '../vendor/autoload.php';
 
 use Aws\Ses\SesClient;
@@ -25,13 +26,16 @@ $sender_email = 'clothes.io.sg@gmail.com';
 $recipient_emails = ['rhys.tan.2020@scis.smu.edu.sg'];
 
 // see if can get from the php file
-// $newStatus = 'packing';
-$newStatus = $_POST['orderStatus'];
-// $orderId = '2';
-$orderId = $_POST['orderId']
+$newStatus = 'packing';
+// $newStatus = $_POST['orderStatus'];
+$orderId = '1';
+// $orderId = $_POST['orderId']
 
 echo($newStatus);
 echo($orderId);
+
+$sql2 = "UPDATE `orders_info` SET `status` = '$newStatus' WHERE order_id = '$orderId'";
+					$run_query2 = mysqli_query($con,$sql2);
 
 // Specify a configuration set. If you do not want to use a configuration
 // set, comment the following variable, and the
@@ -72,6 +76,7 @@ try {
     ]);
     $messageId = $result['MessageId'];
     echo("Email sent! Message ID: $messageId"."\n");
+    header('Location:salesofday.php');
 } catch (AwsException $e) {
     // output error message if fails
     echo $e->getMessage();

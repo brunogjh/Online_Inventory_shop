@@ -65,7 +65,7 @@ include "topheader.php";
                          $status = $row['status'];
 
                       ?>
-                      <form method="POST" action="awsemail.php"> 
+                      <form method="GET" action="awsemail.php"> 
                           <tr>
                             <td style="width:5px">
                             <input id='orderId' name='orderId' readonly value='<?php echo $order_id?>' />
