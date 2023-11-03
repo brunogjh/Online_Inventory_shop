@@ -1,5 +1,17 @@
 <?php
-include "../db.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    var_dump($_POST);
+    $newStatus = $_POST['orderStatus'];
+    $orderId = $_POST['orderId'];
+
+    // Now you can work with $newStatus and $orderId as needed.
+
+    echo "$newStatus";
+    echo "$orderId";
+} else {
+    // Handle the case when the form is not submitted via POST.
+    // You may want to redirect or show an error message.
+}
 // If necessary, modify the path in the require statement below to refer to the 
 // location of your Composer autoload.php file.
 
@@ -26,10 +38,10 @@ $sender_email = 'clothes.io.sg@gmail.com';
 $recipient_emails = ['rhys.tan.2020@scis.smu.edu.sg'];
 
 // see if can get from the php file
-$newStatus = 'packing';
-// $newStatus = $_POST['orderStatus'];
-$orderId = '1';
-// $orderId = $_POST['orderId']
+// $newStatus = 'packing';
+$newStatus = $_POST['orderStatus'];
+// $orderId = '2';
+$orderId = $_POST['orderId'];
 
 echo($newStatus);
 echo($orderId);

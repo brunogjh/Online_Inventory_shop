@@ -68,7 +68,11 @@ include "topheader.php";
                       <form method="GET" action="awsemail.php"> 
                           <tr>
                             <td style="width:5px">
-                            <input id='orderId' name='orderId' readonly value='<?php echo $order_id?>' />
+                            <!-- hi rhys uncomment this if u want the order id to be edit-able -->
+                            <!-- <input id='orderId' name='orderId' readonly value='<?php echo $order_id?>' /> -->
+                            <input type="hidden" name='orderId' value='<?php echo $order_id ?>' />
+                            <?php echo $order_id ?>
+
                             </td>
                             
                            <td> <?php
@@ -89,7 +93,8 @@ include "topheader.php";
 
                             <td style="width:5%">
                                   <input id='email' name='email' readonly value='<?php echo $email?>' />
-                                </td>
+                                  <input type="hidden" name='email' value='<?php echo $email ?>' />
+                            </td>
                             
                             <td><?php echo $address ?></td>
                             <td><?php echo $total_amount ?></td>
@@ -100,19 +105,29 @@ include "topheader.php";
                               <td>
                                 <select 
                                 name ='orderStatus'
-                                class='input-select'>
+                                class='input-select'
+                                id='orderStatusSelect'>
                                   <option value="pending" <?php echo ($status=='pending') ? 'selected' : '' ?>>Pending</option>
                                   <option value="packing" <?php echo ($status=='packing') ? 'selected' : '' ?>>Packing</option>
                                   <option value="delivering" <?php echo ($status=='delivering') ? 'selected' : '' ?>>Delivering</option>
                               </select>
+                              <input type="hidden" name='orderStatusHidden' value='<?php echo $status ?>' id='orderStatusHiddenField'>
+                              <script>
+                                
+                                document.getElementById('orderStatusSelect').addEventListener('change', function() {
+                                  document.getElementById('orderStatusHiddenField').value = this.value;
+                                });
+                              </script>
                                </td>
                                <td>
                                <button type="submit"  style="background:  #00bcd4;
                                 color: #fff;">Update status</button>
                                </td>
-                        
+                            
+                            
                          </tr>
                          </form>
+                         
                          <?php } ?>
                         
                     </tbody>
@@ -121,7 +136,10 @@ include "topheader.php";
                      echo "<center><h2>No users Available</h2><br><hr></center>";
                      }
                   ?>
+                  
                   </table>
+
+                  
                   
                 <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
               </div>
