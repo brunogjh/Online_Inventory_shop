@@ -5,16 +5,16 @@ include "db.php";
 require "cache.php";
 $cacheService = new CacheService();
 if(isset($_POST["categoryhome"])){
-	echo "
+	// echo "
 		
-				<!-- responsive-nav -->
-				<div id='responsive-nav'>
-					<!-- NAV -->
-					<ul class='main-nav nav navbar-nav'>
-                    <li class='active'><a href='index.php'>Home</a></li>
-					<li><a href='store.php'>Womens</a></li>
+	// 			<!-- responsive-nav -->
+	// 			<div id='responsive-nav'>
+	// 				<!-- NAV -->
+	// 				<ul class='main-nav nav navbar-nav'>
+    //                 <li class='active'><a href='index.php'>Home</a></li>
+	// 				<li><a href='store.php'>Womens</a></li>
 					
-	";
+	// ";
 	$category_query = "SELECT * FROM categories WHERE cat_id!=1";
 	// Define a callback function that fetches data from RDS if not found in the cache
 	$navbar_callback = function () use ($con, $category_query) {
