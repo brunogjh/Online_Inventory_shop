@@ -173,10 +173,10 @@ span.price {
 					</div>
 					</div>
 					';
-					$i=1;
+					$i=0;
 					$total=0;
 					$total_count=$_POST['total_count'];
-					while($i<=$total_count){
+					while($i<$total_count){
 						$item_name_ = $_POST['item_name_'.$i];
 						$amount_ = $_POST['amount_'.$i];
 						$quantity_ = $_POST['quantity_'.$i];
