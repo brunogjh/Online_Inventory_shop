@@ -17,7 +17,9 @@ if (isset($_SESSION["uid"])) {
     $cardnumberstr=(string)$cardnumber;
     $total_count=$_POST['total_count'];
     $prod_total = $_POST['total_price'];
-    $product_id=$_POST["product_id"];
+    // $product_id=$_POST["product_id"];
+    $product_id=$_POST["prod_id"];
+
    
                         
 

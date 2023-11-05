@@ -178,9 +178,7 @@ span.price {
 					$total_count=$_POST['total_count'];
 					while($i<=$total_count){
 						$item_name_ = $_POST['item_name_'.$i];
-						$amount_ = $_POST['amount_'.$i];
-						$quantity_ = $_POST['quantity_'.$i];
-						$total=$total+$amount_ ;
+						$amount_ = $_POST['amount_'.$i];product_id
 						$sql = "SELECT product_id FROM products WHERE product_title='$item_name_'";
 						$query = mysqli_query($con,$sql);
 						$row=mysqli_fetch_array($query);
