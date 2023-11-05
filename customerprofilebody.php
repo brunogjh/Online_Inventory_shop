@@ -73,14 +73,15 @@ include "header.php";
                                             $query1 = "SELECT * FROM order_products where order_id = $order_id";
                                             $run1 = mysqli_query($con,$query1); 
                                             while($row1 = mysqli_fetch_array($run1)){
-                                            $product_id = $row1['product_id'];
+                                                $product_id = $row1['product_id'];
+                                                echo $product_id;
 
-                                            // TO GET THE ACTUAL PRODUCT
-                                            $query2 = "SELECT * FROM products where product_id = $product_id";
-                                            $run2 = mysqli_query($con,$query2);
+                                                // TO GET THE ACTUAL PRODUCT
+                                                $query2 = "SELECT * FROM products where product_id = $product_id";
+                                                $run2 = mysqli_query($con,$query2);
 
-                                            while($row2 = mysqli_fetch_array($run2)){
-                                            $product_title = $row2['product_title'];
+                                                while($row2 = mysqli_fetch_array($run2)){
+                                                $product_title = $row2['product_title'];
                                         ?>
                             
                                             <?php 
