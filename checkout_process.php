@@ -15,10 +15,12 @@ if (isset($_SESSION["uid"])) {
     $cvv= $_POST['cvv'];
     $user_id=$_SESSION["uid"];
     $cardnumberstr=(string)$cardnumber;
-    $total_count=$_POST['total_count'];
+    // $total_count=$_POST['total_count'];
+    $total_count=$_POST['totalCountR'];
+
     $prod_total = $_POST['total_price'];
     // $product_id=$_POST["product_id"];
-    $product_id=$_POST["product_id"];
+    // $product_id=$_POST["product_id"];
 
     echo $product_id;
    
