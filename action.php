@@ -440,7 +440,7 @@ if (isset($_POST["Common"])) {
 							<input type="hidden" name="business" value="shoppingcart@sainox.com">
 							<input type="hidden" name="upload" value="1">';
 							  
-							$x=0;
+							$x=1;
 							$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
 							$query = mysqli_query($con,$sql);
 							while($row=mysqli_fetch_array($query)){
