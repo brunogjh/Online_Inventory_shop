@@ -1,12 +1,13 @@
 <?php
+session_start();
 include "db.php";
 require "./cache.php";
-$cacheService = new CacheService();
+include "header.php";
 
 // query to get the orders from the user where user_id == uid stored in session
 
 
-$order_details = mysqli_query($con, $order_query);
+// $order_details = mysqli_query($con, $order_query);
 
 ?>
 
@@ -116,3 +117,6 @@ $order_details = mysqli_query($con, $order_query);
     </div>
 </div>
 
+<?php
+include "footer.php";
+?>

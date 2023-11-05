@@ -37,6 +37,7 @@ if (isset($_SESSION["uid"])) {
         echo( mysqli_error($con));
     }
 
+
 	$sql = "INSERT INTO `orders_info` 
 	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
 	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
@@ -60,7 +61,7 @@ if (isset($_SESSION["uid"])) {
             $sub_total=(int)$prod_price*(int)$prod_qty;
             $sql1="INSERT INTO `order_products` 
             (`order_pro_id`,`order_id`,`product_id`,`qty`,`amt`) 
-            VALUES (NULL, '$order_id','$prod_id','$prod_qty','$sub_total')";
+            VALUES ('$prod_id', '$order_id','$prod_id','$prod_qty','$sub_total')";
             mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is inncorrect..........");
   
             if(mysqli_query($con,$sql1)){
