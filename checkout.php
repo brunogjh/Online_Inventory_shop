@@ -229,6 +229,7 @@ span.price {
 					<table class='table table-condensed'>
 					<thead><tr>
 					<th >no</th>
+					<th>Product Id</th>
 					<th >product title</th>
 					<th > Quantity</th>
 					<th >	amount</th></tr>
@@ -252,7 +253,7 @@ span.price {
 					
 						echo "	
 
-						<tr><td><p>$item_number_</p></td><td><p>$item_name_</p></td><td ><p>$quantity_</p></td><td ><p>Rs. $amount_</p></td></tr>";
+						<tr><td><p>$item_number_</p></td><td><p>$product_id</p></td><td><p>$item_name_</p></td><td ><p>$quantity_</p></td><td ><p>Rs. $amount_</p></td></tr>";
 						
 						$i++;
 					}
