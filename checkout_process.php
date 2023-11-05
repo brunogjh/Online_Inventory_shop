@@ -40,9 +40,9 @@ if (isset($_SESSION["uid"])) {
 
 	$sql = "INSERT INTO `orders_info` 
 	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
-	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`, `pending`) 
+	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`, `status`) 
 	VALUES ($order_id, '$user_id','$f_name','$email', 
-    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
+    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv', 'pending')";
 
 
     if(mysqli_query($con,$sql)){
