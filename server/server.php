@@ -88,9 +88,9 @@ if (isset($_POST['login_admin'])) {
        $_SESSION['admin_email'] = $email;
       $_SESSION['admin_name'] = $admin_username;
       $_SESSION['success'] = "You are now logged in";
-      echo"<script>window.location.href='index.php'</script>";
-      // header('Location: index.php');
+      header('Location: index.php');
       // window.location.href = "index.php"
+
     }else {
       array_push($errors, "Wrong username/password combination");
     }

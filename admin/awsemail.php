@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // If necessary, modify the path in the require statement below to refer to the 
 // location of your Composer autoload.php file.
 
+include "../db.php";
 require '../vendor/autoload.php';
 
 use Aws\Ses\SesClient;
