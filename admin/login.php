@@ -44,7 +44,9 @@
                             </div>
                            
                             <div class="form-group form-button">
-                                <input type="submit" name="login_admin" id="signin" class="form-submit" value="Log in"/>
+                                <a href='index.php'>
+                                    <input type="submit" name="login_admin" id="signin" class="form-submit" value="Log in"/>
+                                </a>
                             </div>
                         </form>
                         
