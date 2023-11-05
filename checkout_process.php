@@ -45,9 +45,9 @@ if (isset($_SESSION["uid"])) {
 
 	$sql = "INSERT INTO `orders_info` 
 	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
-	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`, `status`) 
+	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
 	VALUES ($order_id, '$user_id','$f_name','$email', 
-    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv', 'pending')";
+    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
 
 
     if(mysqli_query($con,$sql)){
@@ -70,17 +70,17 @@ if (isset($_SESSION["uid"])) {
             VALUES ('$order_id', '$order_id','$prod_id','$prod_qty','$sub_total')";
             mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is inncorrect..........");
   
-            // if(mysqli_query($con,$sql1)){
-            //     $del_sql="DELETE from cart where user_id=$user_id";
-            //     if(mysqli_query($con,$del_sql)){
-            //         echo"<script>window.location.href='payment_success.php'</script>";
-            //     }else{
-            //         echo(mysqli_error($con));
-            //     }
+            if(mysqli_query($con,$sql1)){
+                $del_sql="DELETE from cart where user_id=$user_id";
+                if(mysqli_query($con,$del_sql)){
+                    echo"<script>window.location.href='payment_success.php'</script>";
+                }else{
+                    echo(mysqli_error($con));
+                }
 
-            // }else{
-            //     echo(mysqli_error($con));
-            // }
+            }else{
+                echo(mysqli_error($con));
+            }
             $i++;
         }
         if(mysqli_query($con,$sql1)){
