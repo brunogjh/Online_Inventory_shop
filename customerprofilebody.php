@@ -74,7 +74,10 @@ include "header.php";
                                             $run1 = mysqli_query($con,$query1); 
                                             while($row1 = mysqli_fetch_array($run1)){
                                                 $product_id = $row1['product_id'];
+                                                <?php
                                                 echo $product_id;
+                                                ?>
+                                                
 
                                                 // TO GET THE ACTUAL PRODUCT
                                                 $query2 = "SELECT * FROM products where product_id = $product_id";
