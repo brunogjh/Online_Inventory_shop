@@ -1,15 +1,7 @@
 <?php
-session_start();
-header("Content-Type: text/html; charset=UTF-8");
 include "db.php";
 require "./cache.php";
 include "header.php";
-
-// query to get the orders from the user where user_id == uid stored in session
-
-
-// $order_details = mysqli_query($con, $order_query);
-
 ?>
 
 <!-- this is the part where i add the content for profile -->
