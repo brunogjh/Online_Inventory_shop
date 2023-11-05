@@ -89,6 +89,7 @@ if (isset($_POST['login_admin'])) {
       $_SESSION['admin_name'] = $admin_username;
       $_SESSION['success'] = "You are now logged in";
       header('Location: index.php');
+      header('Location: /index.php');
       // window.location.href = "index.php"
 
     }else {

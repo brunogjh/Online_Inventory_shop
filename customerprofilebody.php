@@ -6,6 +6,14 @@ include "header.php";
 
 <!-- this is the part where i add the content for profile -->
 
+<?php
+    if($_SESSION['uid'] == null || !isset($_SESSION['uid'])){
+?>
+<div>
+    Please login.
+</div>
+    <?php } ?>
+
 <div class="content">
     <div class="container-fluid">
         <div class="col-md-14">
