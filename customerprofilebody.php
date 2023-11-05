@@ -99,7 +99,7 @@ include "header.php";
                                         <?php echo $total_amount ?>
                                     </td>
                                     <td>
-                                        <?php $status ?>
+                                        <?php echo $status ?>
                                     </td>
                                 </tr>
                                 <?php } ?>
