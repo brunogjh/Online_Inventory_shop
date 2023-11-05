@@ -48,14 +48,15 @@ if (isset($_SESSION["uid"])) {
 
 
     if(mysqli_query($con,$sql)){
-        $i=0;
+        $i=1;
         $prod_id_=0;
         $prod_price_=0;
         $prod_qty_=0;
-        while($i<$total_count){
+        while($i<=$total_count){
             $str=(string)$i;
-            $prod_id_+$str = $_POST['prod_id_'.$i];
-            $prod_id=$prod_id_+$str;		
+            // $prod_id_+$str = $_POST['prod_id_'.$i];
+            // $prod_id=$prod_id_+$str;	
+            $prod_id = $_POST["prod_id_'.$i.'"];	
             $prod_price_+$str = $_POST['prod_price_'.$i];
             $prod_price=$prod_price_+$str;
             $prod_qty_+$str = $_POST['prod_qty_'.$i];
