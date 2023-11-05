@@ -453,7 +453,7 @@ if (isset($_POST["Common"])) {
 								     <input type="hidden" name="amount_'.$x.'" value="'.$row["product_price"].'">
 								     <input type="hidden" name="quantity_'.$x.'" value="1">';
 								}
-							  echo '<input type="hidden" name="totalCountR" value="'.$x.'">'
+							  echo '<input type="hidden" name="totalCountR" value="'.$x.'">';
 							echo   
 								'<input type="hidden" name="return" value="http://localhost/myfiles/public_html/payment_success.php"/>
 					                <input type="hidden" name="notify_url" value="http://localhost/myfiles/public_html/payment_success.php">
