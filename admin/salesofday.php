@@ -111,11 +111,11 @@ include "topheader.php";
                                   <option value="packing" <?php echo ($status=='packing') ? 'selected' : '' ?>>Packing</option>
                                   <option value="delivering" <?php echo ($status=='delivering') ? 'selected' : '' ?>>Delivering</option>
                               </select>
-                              <input type="hidden" name='orderStatusHidden' value='<?php echo $status ?>' id='orderStatusHiddenField'>
+                              <input type="hidden" name='orderStatus' value='<?php echo $status ?>' id='orderStatus'>
                               <script>
                                 
                                 document.getElementById('orderStatusSelect').addEventListener('change', function() {
-                                  document.getElementById('orderStatusHiddenField').value = this.value;
+                                  document.getElementById('orderStatus').value = this.value;
                                 });
                               </script>
                                </td>
