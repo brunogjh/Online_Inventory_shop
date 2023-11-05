@@ -12,7 +12,7 @@ include "header.php";
 <div>
     Please login.
 </div>
-    <?php } ?>
+    <?php } else{?>
 
 <div class="content">
     <div class="container-fluid">
@@ -117,6 +117,7 @@ include "header.php";
         </div>
     </div>
 </div>
+<?php}?>
 
 <?php
 include "footer.php";
