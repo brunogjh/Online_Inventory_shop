@@ -169,6 +169,6 @@ if (isset($_POST["login_user_with_product"])) {
 <script type="text/javascript">
     document.getElementById("myButton").onclick = function () {
     	myButton.type = "submit";
-        location.href = "/client%20project/techshop/online-shopping-system/index.php";
+        location.href = "index.php";
     };
 </script>
