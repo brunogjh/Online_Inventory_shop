@@ -65,7 +65,7 @@ include "topheader.php";
                          $status = $row['status'];
 
                       ?>
-                      <form method="GET" action="awsemail.php"> 
+                      <form method="POST" action="awsemail.php"> 
                           <tr>
                             <td style="width:5px">
                             <!-- hi rhys uncomment this if u want the order id to be edit-able -->

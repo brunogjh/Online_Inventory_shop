@@ -7,12 +7,12 @@ include "header.php";
 <!-- this is the part where i add the content for profile -->
 
 <?php
-    if($_SESSION['uid'] == null || !isset($_SESSION['uid'])){
+    if($_SESSION['uid'] == null || !isset($_SESSION['uid'])){ echo`
 ?>
 <div>
     Please login.
 </div>
-    <?php } else{?>
+<?php `} else{ echo `?>
 
 <div class="content">
     <div class="container-fluid">
@@ -117,7 +117,7 @@ include "header.php";
         </div>
     </div>
 </div>
-<?php}?>
+<?php `}?>
 
 <?php
 include "footer.php";
