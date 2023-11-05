@@ -15,14 +15,14 @@ if (isset($_SESSION["uid"])) {
     $cvv= $_POST['cvv'];
     $user_id=$_SESSION["uid"];
     $cardnumberstr=(string)$cardnumber;
-    // $total_count=$_POST['total_count'];
-    $total_count=$_POST['totalCountR'];
+    $total_count=$_POST['total_count'];
+    // $total_count=$_POST['totalCountR'];
 
     $prod_total = $_POST['total_price'];
     // $product_id=$_POST["product_id"];
     // $product_id=$_POST["product_id"];
 
-    echo $product_id;
+
    
                         
 
@@ -70,18 +70,29 @@ if (isset($_SESSION["uid"])) {
             VALUES ('$order_id', '$order_id','$prod_id','$prod_qty','$sub_total')";
             mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is inncorrect..........");
   
-            if(mysqli_query($con,$sql1)){
-                $del_sql="DELETE from cart where user_id=$user_id";
-                if(mysqli_query($con,$del_sql)){
-                    echo"<script>window.location.href='payment_success.php'</script>";
-                }else{
-                    echo(mysqli_error($con));
-                }
+            // if(mysqli_query($con,$sql1)){
+            //     $del_sql="DELETE from cart where user_id=$user_id";
+            //     if(mysqli_query($con,$del_sql)){
+            //         echo"<script>window.location.href='payment_success.php'</script>";
+            //     }else{
+            //         echo(mysqli_error($con));
+            //     }
 
+            // }else{
+            //     echo(mysqli_error($con));
+            // }
+            $i++;
+        }
+        if(mysqli_query($con,$sql1)){
+            $del_sql="DELETE from cart where user_id=$user_id";
+            if(mysqli_query($con,$del_sql)){
+                echo"<script>window.location.href='payment_success.php'</script>";
             }else{
                 echo(mysqli_error($con));
             }
-            $i++;
+
+        }else{
+            echo(mysqli_error($con));
         }
     }else{
 
