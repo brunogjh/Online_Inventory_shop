@@ -444,7 +444,7 @@ if (isset($_POST["Common"])) {
 							$sql = "SELECT a.product_id,a.product_title,a.product_price,a.product_image,b.id,b.qty FROM products a,cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
 							$query = mysqli_query($con,$sql);
 							while($row=mysqli_fetch_array($query)){
-								
+								$x++;
 								echo  	
 
 									'<input type="hidden" name="total_count" value="'.$x.'">
@@ -453,7 +453,7 @@ if (isset($_POST["Common"])) {
 								     <input type="hidden" name="amount_'.$x.'" value="'.$row["product_price"].'">
 								     <input type="hidden" name="quantity_'.$x.'" value="1">';
 								}
-								$x++;
+								
 							echo   
 								'<input type="hidden" name="return" value="http://localhost/myfiles/public_html/payment_success.php"/>
 					                <input type="hidden" name="notify_url" value="http://localhost/myfiles/public_html/payment_success.php">
