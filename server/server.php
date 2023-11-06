@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../db.php");
 ?>
 
 <?php
@@ -12,9 +13,8 @@ $email    = "";
 $errors = array();
 $reg_date = date("Y/m/d");
 
-// connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'onlineshop');
-
+// // connect to the database
+// $db = mysqli_connect('localhost', 'root', '', 'onlineshop');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -102,7 +102,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 try {
-    // Your code here
     if (isset($_POST['login_admin'])) {
       $admin_username = mysqli_real_escape_string($db, $_POST['admin_username']);
       $password = mysqli_real_escape_string($db, $_POST['password']);
