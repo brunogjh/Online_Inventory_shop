@@ -55,7 +55,7 @@ if (isset($_SESSION["uid"])) {
         $prod_id_=0;
         $prod_price_=0;
         $prod_qty_=0;
-        while($i< $total_count){
+        while($i<= $total_count){
             $str=(string)$i;
             $prod_id_+$str = $_POST['prod_id_'.$i];
             $prod_id=$prod_id_+$str;	
@@ -68,7 +68,7 @@ if (isset($_SESSION["uid"])) {
             $sql1="INSERT INTO `order_products` 
             (`order_id`,`product_id`,`qty`,`amt`) 
             VALUES ('$order_id','$prod_id','$prod_qty','$sub_total')";
-            mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is inncorrect..........");
+            mysqli_query($con,"UPDATE products set qty=qty-'$prod_qty' where product_id='$prod_id'")or die("Query 2 is incorrect..........");
   
             if(mysqli_query($con,$sql1)){
                 $del_sql="DELETE from cart where user_id=$user_id";
