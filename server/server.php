@@ -69,35 +69,71 @@ if (isset($_POST['reg_user'])) {
 
 
 
-if (isset($_POST['login_admin'])) {
-  $admin_username = mysqli_real_escape_string($db, $_POST['admin_username']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
+// if (isset($_POST['login_admin'])) {
+//   $admin_username = mysqli_real_escape_string($db, $_POST['admin_username']);
+//   $password = mysqli_real_escape_string($db, $_POST['password']);
 
-  if (empty($admin_username)) {
-    array_push($errors, "Username is required");
-  }
-  if (empty($password)) {
-    array_push($errors, "Password is required");
-  }
+//   if (empty($admin_username)) {
+//     array_push($errors, "Username is required");
+//   }
+//   if (empty($password)) {
+//     array_push($errors, "Password is required");
+//   }
 
-  if (count($errors) == 0) {
-    $password = $password;
-    $query = "SELECT * FROM admin_info WHERE admin_name='admin' AND admin_password='adminpassword'";
-    $results = mysqli_query($db, $query);
-    if (mysqli_num_rows($results) == 1) {
-       $_SESSION['admin_email'] = $email;
-      $_SESSION['admin_name'] = $admin_username;
-      $_SESSION['success'] = "You are now logged in";
-      // header('Location: index.php');
-      header('Location: ./index.php');
-      // window.location.href = "index.php"
+//   if (count($errors) == 0) {
+//     $password = $password;
+//     $query = "SELECT * FROM admin_info WHERE admin_name='admin' AND admin_password='adminpassword'";
+//     $results = mysqli_query($db, $query);
+//     if (mysqli_num_rows($results) == 1) {
+//        $_SESSION['admin_email'] = $email;
+//       $_SESSION['admin_name'] = $admin_username;
+//       $_SESSION['success'] = "You are now logged in";
+//       // header('Location: index.php');
+//       header('Location: ./index.php');
+//       // window.location.href = "index.php"
 
-    }else {
-      array_push($errors, "Wrong username/password combination");
+//     }else {
+//       array_push($errors, "Wrong username/password combination");
+//     }
+//   }
+// }
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+try {
+    // Your code here
+    if (isset($_POST['login_admin'])) {
+      $admin_username = mysqli_real_escape_string($db, $_POST['admin_username']);
+      $password = mysqli_real_escape_string($db, $_POST['password']);
+
+      if (empty($admin_username)) {
+          throw new Exception("Username is required");
+      }
+      if (empty($password)) {
+          throw new Exception("Password is required");
+      }
+
+      if (count($errors) == 0) {
+        $password = $password;
+        $query = "SELECT * FROM admin_info WHERE admin_name='admin' AND admin_password='adminpassword'";
+        $results = mysqli_query($db, $query);
+        if (mysqli_num_rows($results) == 1) {
+            $_SESSION['admin_email'] = $email;
+          $_SESSION['admin_name'] = $admin_username;
+          $_SESSION['success'] = "You are now logged in";
+          // header('Location: index.php');
+          header('Location: ./index.php');
+        }
+      }
     }
-  }
+} catch (Exception $e) {
+    // Handle the exception (error) here
+    $errorMessage = $e->getMessage();
+    error_log("Error: $errorMessage");
+    // You can customize how you handle errors here, such as displaying an error message to the user or redirecting to an error page.
+    echo "An error occurred: $errorMessage";
 }
-
 
 ?>
 
