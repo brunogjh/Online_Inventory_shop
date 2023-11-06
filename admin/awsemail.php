@@ -3,7 +3,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($_POST);
     $newStatus = $_POST['orderStatus'];
     $orderId = $_POST['orderId'];
-
+// 
     // Now you can work with $newStatus and $orderId as needed.
 
     echo "$newStatus";
