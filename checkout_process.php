@@ -45,9 +45,9 @@ if (isset($_SESSION["uid"])) {
 
 	$sql = "INSERT INTO `orders_info` 
 	(`order_id`,`user_id`,`f_name`, `email`,`address`, 
-	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`) 
+	`city`, `state`, `zip`, `cardname`,`cardnumber`,`expdate`,`prod_count`,`total_amt`,`cvv`, `status`) 
 	VALUES ($order_id, '$user_id','$f_name','$email', 
-    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv')";
+    '$address', '$city', '$state', '$zip','$cardname','$cardnumberstr','$expdate','$total_count','$prod_total','$cvv', 'pending')";
 
 
     if(mysqli_query($con,$sql)){
@@ -55,7 +55,7 @@ if (isset($_SESSION["uid"])) {
         $prod_id_=0;
         $prod_price_=0;
         $prod_qty_=0;
-        while($i<=$total_count){
+        while($i< $total_count){
             $str=(string)$i;
             $prod_id_+$str = $_POST['prod_id_'.$i];
             $prod_id=$prod_id_+$str;	
