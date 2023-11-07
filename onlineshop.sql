@@ -222,10 +222,10 @@ CREATE TABLE `orders_info` (
 -- Dumping data for table `orders_info`
 --
 
-INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`,   `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`) VALUES
-(1, 27, 'rhys', 'rhystan3@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 2, 100, 211, 'pending'),
-(2, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'packing'),
-(3, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'delivering');
+-- INSERT INTO `orders_info` (`order_id`, `user_id`, `f_name`, `email`, `address`, `city`, `state`, `zip`,   `cardname`, `cardnumber`, `expdate`, `prod_count`, `total_amt`, `cvv`, `status`) VALUES
+-- (1, 27, 'rhys', 'rhystan3@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 2, 100, 211, 'pending'),
+-- (2, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'packing'),
+-- (3, 28, 'dom', 'dominicteow@gmail.com', 'mysore', 'singap', 'mysore', 123456, 'ttt', '5264111122223333', '12/22', 5, 750, 211, 'delivering');
 
 
 -- --------------------------------------------------------
