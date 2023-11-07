@@ -24,7 +24,7 @@ if($picture_type=="image/jpeg" || $picture_type=="image/jpg" || $picture_type=="
 {
 	if($picture_size<=50000000)
 	
-		$pic_name=time()."_".$picture_name;
+		$pic_name=$picture_name;
 		move_uploaded_file($picture_tmp_name,"../../product_images/".$pic_name);
     $pic_url = '/' . $pic_name;
 		

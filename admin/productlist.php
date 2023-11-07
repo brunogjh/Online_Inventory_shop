@@ -63,7 +63,6 @@ include "topheader.php";
 	<a class=" btn btn-primary" href="addproduct.php">Add New</a></th></tr></thead>
                     <tbody>
                       <?php 
-
                         $result=mysqli_query($con,"select product_id,product_cat,product_image,product_brand, product_title,product_price,product_discount from products Limit $page1,12")or die ("query 1 incorrect.....");
 
                         while(list($product_id,$product_cat,$image,$product_brand,$product_name,$price,$discount)=mysqli_fetch_array($result))
