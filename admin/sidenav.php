@@ -29,7 +29,7 @@ if (isset($_GET['logout'])) {
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Techshop|suppliers
+        Clothes.io | Admin
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -51,7 +51,7 @@ if (isset($_GET['logout'])) {
     -->
             <div class="logo">
                 <a href="index.php" class="simple-text logo-normal">
-                     <img src="assets/img/capture.png" style="width: 150px;">
+                     <img src="assets/clothesioicon.png" style="width: 150px;">
                 </a></div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">

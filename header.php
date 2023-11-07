@@ -109,8 +109,8 @@ session_start();
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="#" class="logo">
-                                <font style="font-style:normal; font-size: 33px;color: aliceblue;font-family: serif">
-                                    <img src="./img/Capture.png" style="width: 150px;">
+                                <font style="font-style:normal; font-size: 35px;color: aliceblue;font-family: serif">
+                                    <img src="./product_images/clothesioicon.png" style="width: 150px;">
                                 </font>
 
                             </a>
@@ -123,12 +123,12 @@ session_start();
                         <div class="header-search">
                             <form>
                                 <select class="input-select">
-                                    <option value="0">All Categories!!!!</option>
+                                    <option value="0">All Categories</option>
                                     
                                 </select>
-                                <input class="input" id="search" type="text" placeholder="Search here">
+                                <input class="input" id="search" type="text" style='width:50%' placeholder="Search here"><span>
                                 <button type="submit" id="search_btn" class="search-btn" style="background:  #00bcd4;
-    color: #fff;">Search</button>
+    color: #fff;">Search</button></span>
                             </form>
                         </div>
                     </div>

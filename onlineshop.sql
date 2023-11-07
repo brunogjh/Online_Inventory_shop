@@ -269,8 +269,20 @@ INSERT INTO `products` (`product_id`, `product_cat`, `product_brand`, `product_t
 (1, 1, 1, 'Adidas Men T-Shirt', 100, 'Adidas Men T-Shirt', '/mens/adidas_men_tshirt_1.webp', 'Adidas', 100, "Men"),
 (2, 1, 2, 'Nike Men T-Shirt', 100, 'Nike Men T-Shirt', '/mens/nike_men_tshirt_1.jpg', 'Nike', 100, "Men"),
 (3, 1, 1, 'Adidas Women T-Shirt', 100, 'Adidas Women T-Shirt', '/womens/adidas_women_tshirt_1.jpg', 'Adidas', 100, "Women"),
-(4, 3, 2, 'Nike Women Leggings', 100, 'Nike Women Leggings', '/womens/nike_women_leggings_1.webp', 'Nike', 100, "Women");
-
+(4, 3, 2, 'Nike Women Leggings', 150, 'Nike Women Leggings', '/womens/nike_women_leggings_1.webp', 'Nike', 100, "Women"),
+(5, 1, 1, 'Adidas Women T-Shirt Black Classic', 65, 'Adidas Women T-Shirt','/womens/adidas_women_tshirt_2.jpg', 'Adidas', 80, 'Women'),
+(6, 1, 1, 'Adidas Women T-Shirt Baby Pink Classic', 50, 'Adidas Women T-Shirt', '/womens/adidas_women_tshirt_3.jpg', 'Adidas', 80, 'Women'),
+(7, 3, 2, 'Nike Women Side Logo Leggings', 180, 'Nike Women Leggings', '/womens/nike_women_leggings_2.jpg', 'Nike', 100, "Women"),
+(8, 3, 2, 'Nike Women Hot Pink Leggings', 140, 'Nike Women Leggings', '/womens/nike_women_leggings_3.webp', 'Nike', 100, "Women"),
+(9, 4, 2, 'Nike Limited Edition Air Force', 450, 'Nike Women Shoes', '/womens/nike_women_shoes_1.webp', 'Nike', 30, 'Women'),
+(10, 4, 2, 'Nike Running Shoes', 95, 'Nike Women Shoes', '/womens/nike_women_shoes_2.webp', 'Nike', 100, 'Women'),
+(11, 4, 2, 'Nike Pink and Cream Dunks', 315, 'Nike Women Shoes', '/womens/nike_women_shoes_3.webp', 'Nike', 70, 'Women'),
+(12, 5, 5, 'Basic Cargo Skirt', 50, 'Cargo Skirt Women','/womens/womens9.webp', 'Others', 80, 'Women'),
+(13, 1, 1, 'Adidas Red Men T-Shirt', 80, 'Adidas Men T-Shirt', '/mens/adidas_men_tshirt_2.webp', 'Adidas', 100, "Men"),
+(14, 1, 1, 'Adidas Men Yellow Dry-Fit T-Shirt', 30, 'Adidas Men T-Shirt', '/mens/adidas_men_tshirt_3.webp', 'Adidas', 70, "Men"),
+(15, 2, 2, 'Nike Men Classic Shorts', 45, 'Adidas Men Shorts', '/mens/nike_men_shorts_1.jpg', 'Nike', 100, "Men"),
+(16, 1, 2, 'Nike Spotted Men T-Shirt', 55, 'Adidas Men T-Shirt', '/mens/nike_men_tshirt_2.webp', 'Nike', 70, "Men"),
+(17, 2, 3, 'Under Armour Men SHorts', 40, 'Under Armour Men Shorts', '/mens/ua_men_shorts_1.webp', 'Under Armour', 100, "Men");
 
 -- --------------------------------------------------------
 

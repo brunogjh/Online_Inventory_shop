@@ -104,14 +104,15 @@ include "topheader.php";
                                 
                               <td>
                                 <select 
+                                style='width: 100%; borderRadius: 0px; padding: 3px'
                                 name ='orderStatus'
                                 class='input-select'
                                 id='orderStatusSelect'>
-                                  <option value="pending" <?php echo ($status=='pending') ? 'selected' : '' ?>>Pending</option>
-                                  <option value="packing" <?php echo ($status=='packing') ? 'selected' : '' ?>>Packing</option>
-                                  <option value="delivering" <?php echo ($status=='delivering') ? 'selected' : '' ?>>Delivering</option>
+                                  <option style='padding: 5px' value="pending" <?php echo ($status=='pending') ? 'selected' : '' ?>>Pending</option>
+                                  <option style='padding: 5px' value="packing" <?php echo ($status=='packing') ? 'selected' : '' ?>>Packing</option>
+                                  <option style='padding: 5px' value="delivering" <?php echo ($status=='delivering') ? 'selected' : '' ?>>Delivering</option>
                               </select>
-                              <input type="hidden" name='orderStatus' value='<?php echo $status ?>' id='orderStatus'>
+                              <input style='padding: 2px' type="hidden" name='orderStatus' value='<?php echo $status ?>' id='orderStatus'>
                               <script>
                                 
                                 document.getElementById('orderStatusSelect').addEventListener('change', function() {

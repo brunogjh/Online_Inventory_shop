@@ -12,7 +12,21 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/adminlogin.css">
+    
 </head>
+
+<style>
+.main{
+    width: '70%'; 
+    margin-left: 'auto';
+    margin-right: 'auto';
+    border-radius: '20px';
+    border: '1px solid red'
+}
+
+</style>
+
 <body>
 
     <div class="main" style="padding-top: 90px;">
@@ -24,10 +38,7 @@
             <div class="container">
                 <div class="signin-content">
                     <div class="signin-image">
-                        <figure><img src="./assets/images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="../index.php" class="signup-image-link">Back To Home</a>
-                        
-                        
+                        <figure><img src="./assets/clothesioicon.png" alt="sing up image" '></figure>                   
                     </div>
 
                     <div class="signin-form">
@@ -47,10 +58,19 @@
                                 <a href='index.php'>
                                     <input type="submit" name="login_admin" id="signin" class="form-submit" value="Log in"/>
                                 </a>
+                                <a 
+                                    href="../index.php"  >
+                                    <input type="cancel" name="login_admin" id="signin" class="form-submit" value="Back To Home"/>
+                                </a>
                             </div>
                         </form>
                         
                     </div>
+
+                    <!-- <div class="bthome">
+                    <a href="../index.php" class="signup-image-link">
+                    <input type="cancel" name="login_admin" id="signin" class="form-submit" value="Back To Home"/></a>
+                    </div> -->
                 </div>
             </div>
         </section>
