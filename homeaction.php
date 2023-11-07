@@ -12,10 +12,10 @@ if(isset($_POST["categoryhome"])){
 					<!-- NAV -->
 					<ul class='main-nav nav navbar-nav'>
                     <li class='active'><a href='index.php'>Home</a></li>
-					<li style='padding-right: 3%'><a href='store.php'>All</a></li>
+					<li style='padding-right: 7%'><a href='store.php'>All</a></li>
 					
 	";
-	$category_query = "SELECT * FROM categories WHERE cat_id!=1";
+	$category_query = "SELECT * FROM categories";
 	// Define a callback function that fetches data from RDS if not found in the cache
 	$navbar_callback = function () use ($con, $category_query) {
 		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
