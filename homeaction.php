@@ -8,7 +8,7 @@ if(isset($_POST["categoryhome"])){
 	echo "
 		
 				<!-- responsive-nav -->
-				<div id='responsive-nav'>
+				<div id='responsive-nav' style='width:100%; border: 1px solid red'>
 					<!-- NAV -->
 					<ul class='main-nav nav navbar-nav'>
                     <li class='active'><a href='index.php'>Home</a></li>
