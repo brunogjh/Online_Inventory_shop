@@ -12,7 +12,7 @@ if(isset($_POST["categoryhome"])){
 					<!-- NAV -->
 					<ul class='main-nav nav navbar-nav'  style='width:100%; '>
                     <li class='active'><a href='index.php'>Home</a></li>
-					<li style='padding-right: 3%'><a href='store.php'>All</a></li>
+					<li style='padding-right: 2%'><a href='store.php'>All</a></li>
 					
 	";
 	$category_query = "SELECT * FROM categories";
