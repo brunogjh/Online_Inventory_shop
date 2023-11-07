@@ -10,9 +10,9 @@ if(isset($_POST["categoryhome"])){
 				<!-- responsive-nav -->
 				<div id='responsive-nav'>
 					<!-- NAV -->
-					<ul class='main-nav nav navbar-nav'  style='width:100%; border: 1px solid red'>
+					<ul class='main-nav nav navbar-nav'  style='width:100%; '>
                     <li class='active'><a href='index.php'>Home</a></li>
-					<li style='padding-right: 7%'><a href='store.php'>All</a></li>
+					<li ><a href='store.php'>All</a></li>
 					
 	";
 	$category_query = "SELECT * FROM categories";
