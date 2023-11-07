@@ -15,7 +15,7 @@ include "header.php";
 </div>
 <?php } ?>
 
-<div class="content" style='width: 90%; marginLeft: auto; marginRight:auto'>
+<div class="content" style='width: 90%; margin-left: auto; margin-right:auto'>
     <div class="container-fluid">
         <div class="col-md-14">
             <div class="card">
