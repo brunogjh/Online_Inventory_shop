@@ -5,6 +5,7 @@ include "db.php";
 require "cache.php";
 $cacheService = new CacheService();
 if(isset($_POST["categoryhome"])){
+	// REMOVE CACHE
 	echo "
 		
 				<!-- responsive-nav -->
@@ -15,50 +16,87 @@ if(isset($_POST["categoryhome"])){
 					<li style='padding-right: 2%'><a href='store.php'>All</a></li>
 					
 	";
+
 	$category_query = "SELECT * FROM categories";
-	// Define a callback function that fetches data from RDS if not found in the cache
-	$navbar_callback = function () use ($con, $category_query) {
-		$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
-		$dataArray = array();
-		while ($row = mysqli_fetch_array($run_query)) {
-			
-			$dataArray[] = array($row["cat_id"], $row["cat_title"]);
+    
+	$run_query = mysqli_query($con,$category_query) or die(mysqli_error($con));
+	
+	if(mysqli_num_rows($run_query) > 0){
+		while($row = mysqli_fetch_array($run_query)){
+			$cid = $row["cat_id"];
+			$cat_name = $row["cat_title"];
+            
+            // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+            // $query = mysqli_query($con,$sql);
+            // $row = mysqli_fetch_array($query);
+            // $count=$row["count_items"];
+            
+            
+            
+			echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
 		}
-		return $dataArray;
-	};
-	$run_query = $cacheService->getFromCacheOrDatabase($category_query, $navbar_callback);
-	if ($run_query) {
-        if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
-            while ($row = mysqli_fetch_array($run_query)) {
+        
+	}
+	//END REMOVE CACHE
+
+
+
+	// ORIG CODE CACHE PART
+	// echo "
+		
+	// 			<!-- responsive-nav -->
+	// 			<div id='responsive-nav'>
+	// 				<!-- NAV -->
+	// 				<ul class='main-nav nav navbar-nav'  style='width:100%; '>
+    //                 <li class='active'><a href='index.php'>Home</a></li>
+	// 				<li style='padding-right: 2%'><a href='store.php'>All</a></li>
+					
+	// ";
+	// $category_query = "SELECT * FROM categories";
+	// // Define a callback function that fetches data from RDS if not found in the cache
+	// $navbar_callback = function () use ($con, $category_query) {
+	// 	$run_query = mysqli_query($con, $category_query) or die(mysqli_error($con));
+	// 	$dataArray = array();
+	// 	while ($row = mysqli_fetch_array($run_query)) {
+			
+	// 		$dataArray[] = array($row["cat_id"], $row["cat_title"]);
+	// 	}
+	// 	return $dataArray;
+	// };
+	// $run_query = $cacheService->getFromCacheOrDatabase($category_query, $navbar_callback);
+	// if ($run_query) {
+    //     if ($run_query instanceof mysqli_result && mysqli_num_rows($run_query) > 0) {
+    //         while ($row = mysqli_fetch_array($run_query)) {
 				
-                $cid = $row["cat_id"];
-                $cat_name = $row["cat_title"];
+    //             $cid = $row["cat_id"];
+    //             $cat_name = $row["cat_title"];
 
-                // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-                // $query = mysqli_query($con, $sql);
-                // $row = mysqli_fetch_array($query);
-                // $count = $row["count_items"];
+    //             // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+    //             // $query = mysqli_query($con, $sql);
+    //             // $row = mysqli_fetch_array($query);
+    //             // $count = $row["count_items"];
 
-                echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
-            }
-        } else {
-			foreach ($run_query as $row){
+    //             echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
+    //         }
+    //     } else {
+	// 		foreach ($run_query as $row){
 				
-				$cid = $row[0];
-                $cat_name = $row[1];
+	// 			$cid = $row[0];
+    //             $cat_name = $row[1];
 
-                // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
-                // $query = mysqli_query($con, $sql);
-                // $row = mysqli_fetch_array($query);
-                // $count = $row["count_items"];
+    //             // $sql = "SELECT COUNT(*) AS count_items FROM products,categories WHERE product_cat=cat_id";
+    //             // $query = mysqli_query($con, $sql);
+    //             // $row = mysqli_fetch_array($query);
+    //             // $count = $row["count_items"];
 
-                echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
-			}
-        }
-    } else {
-        echo "Unable to retrieve data from the cache or database.";
-        // Handle the case when data retrieval fails
-    }
+    //             echo "<li class='categoryhome' cid='$cid'><a href='store.php'>$cat_name</a></li>";
+	// 		}
+    //     }
+    // } else {
+    //     echo "Unable to retrieve data from the cache or database.";
+    //     // Handle the case when data retrieval fails
+    // }
+	//END ORIG CODE CACHE PART
 }
 
 
@@ -113,6 +151,7 @@ if(isset($_POST["getProducthome"])){
 			";
 		}
 	}
+	
 }
 
 
