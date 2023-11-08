@@ -56,7 +56,7 @@ include "header.php";
 					<!-- Product main img -->
 					
 					<?php 
-								include_once 'db.php';
+								include 'db.php';
 								$product_id = $_GET['p'];
 								
 								$sql = " SELECT * FROM products ";
