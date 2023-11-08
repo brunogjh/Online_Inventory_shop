@@ -512,5 +512,4 @@ if (isset($_POST["updateCartItem"])) {
 	}
 }
 
-db_close($con)
 ?>
