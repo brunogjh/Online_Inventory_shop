@@ -220,3 +220,4 @@ if(isset($_POST["get_seleted_Category"]) ||  isset($_POST["search"])){
 			";
 		}
 	}
+db_close();
