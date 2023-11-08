@@ -189,7 +189,6 @@ session_start();
                                   </div>
                                 </div>';    
                             }
-                            db_close($con)
                             ?>
                     </li>
                     <style type="text/css">
