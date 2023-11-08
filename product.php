@@ -252,7 +252,6 @@ include "header.php";
 								} 
 								?>	
 								<?php
-                    include 'db.php';
 								$product_id = $_GET['p'];
                     
 					$product_query = "SELECT * FROM products,categories WHERE product_cat=cat_id AND product_id BETWEEN $product_id AND $product_id+3";
