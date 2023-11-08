@@ -23,17 +23,14 @@ $dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}"
 
 $pdo = new PDO($dsn, $username, $password);
 // Create connection
-if (mysqli_ping()) {
-    printf ("Our connection is ok!\n"); 
-} else {
-    $con = mysqli_connect($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
 
-    // $con = mysqli_connect($dbhost, $username, $password, $dbname, $dbport);
+$con = mysqli_connect($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
+// $con = mysqli_connect($dbhost, $username, $password, $dbname, $dbport);
 
-    // Check connection
-    if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+// Check connection
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
 }
+
 
 ?>
