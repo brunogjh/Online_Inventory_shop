@@ -6,7 +6,7 @@ $uid = $_SESSION["uid"];
 $time = date("M,d,Y h:i:s A");
 $sql2 = "UPDATE `user_info` SET `last_logout` = '$time' WHERE user_id = '$uid'";
 $run_query2 = mysqli_query($con,$sql2);
-
+session_destroy();
 unset($_SESSION["uid"]);
 
 unset($_SESSION["name"]);
