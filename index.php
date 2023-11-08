@@ -7,7 +7,6 @@ include "body.php";
 include "newslettter.php";
 include "footer.php";
 
-db_close()
 ?>
 		
 		
