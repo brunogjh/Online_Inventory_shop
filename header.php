@@ -162,7 +162,7 @@ session_start();
                               <ul class="header-links pull-right">
            
                     <li>
-                        <?php include_once "db.php";
+                        <?php include "db.php";
                             if(isset($_SESSION["uid"])){
                                 $sql = "SELECT first_name FROM user_info WHERE user_id='$_SESSION[uid]'";
                                 $query = mysqli_query($con,$sql);

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $ip_add = getenv("REMOTE_ADDR");
-include_once "db.php";
+include "db.php";
 require "cache.php";
 $cacheService = new CacheService();
 if(isset($_POST["categoryhome"])){
