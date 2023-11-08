@@ -16,12 +16,12 @@ $password = $_SERVER['RDS_PASSWORD'];
 // $username = "root";
 // $password = "";
 
-$charset = 'utf8' ;
+// $charset = 'utf8' ;
 
-$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
+// $dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
 
 
-$pdo = new PDO($dsn, $username, $password);
+// $pdo = new PDO($dsn, $username, $password);
 // Create connection
 
 $con = mysqli_connect($_SERVER['RDS_HOSTNAME'], $_SERVER['RDS_USERNAME'], $_SERVER['RDS_PASSWORD'], $_SERVER['RDS_DB_NAME'], $_SERVER['RDS_PORT']);
