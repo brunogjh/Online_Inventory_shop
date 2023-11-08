@@ -33,8 +33,8 @@ if (!$con) {
 }
 
 
-function db_close($conn){
-    return mysqli_close($conn);
-}
+// function db_close($conn){
+//     return mysqli_close($conn);
+// }
 
 ?>
