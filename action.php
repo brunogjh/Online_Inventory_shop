@@ -1,7 +1,7 @@
 <?php
 session_start();
 $ip_add = getenv("REMOTE_ADDR");
-include "db.php";
+include_once "db.php";
 if(isset($_POST["category"])){
 	$category_query = "SELECT * FROM categories";
     
@@ -512,4 +512,5 @@ if (isset($_POST["updateCartItem"])) {
 	}
 }
 
+db_close($con)
 ?>

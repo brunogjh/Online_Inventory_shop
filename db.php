@@ -32,4 +32,9 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+function db_close($conn){
+    return mysqli_close($conn);
+}
+
 ?>
