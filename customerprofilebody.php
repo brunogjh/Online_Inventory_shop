@@ -1,5 +1,5 @@
 <?php
-include_once "db.php";
+include "db.php";
 require "./cache.php";
 include "header.php";
 ?>

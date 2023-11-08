@@ -1,6 +1,6 @@
 <?php
 
-include_once "db.php";
+include "db.php";
 session_start();
 $uid = $_SESSION["uid"];
 $time = date("M,d,Y h:i:s A");

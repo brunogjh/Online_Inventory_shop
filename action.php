@@ -1,7 +1,7 @@
 <?php
 session_start();
 $ip_add = getenv("REMOTE_ADDR");
-include_once "db.php";
+include "db.php";
 if(isset($_POST["category"])){
 	$category_query = "SELECT * FROM categories";
     
