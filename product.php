@@ -33,7 +33,7 @@ include "header.php";
         }
     };
     global.onload = function () {        
-		// noBackPlease();
+		noBackPlease();
 		// disables backspace on page except on input fields and textarea..
 		document.body.onkeydown = function (e) {
             var elm = e.target.nodeName.toLowerCase();
