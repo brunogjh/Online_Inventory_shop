@@ -99,5 +99,5 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     
 	
 }
-
+sqli_close($con);
 ?>

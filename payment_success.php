@@ -33,3 +33,7 @@ include "header.php";
 </body>
 
 </html>
+
+<?php
+sqli_close($con);
+?>
