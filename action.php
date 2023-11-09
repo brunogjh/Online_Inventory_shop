@@ -512,5 +512,5 @@ if (isset($_POST["updateCartItem"])) {
 	}
 }
 
-sqli_close($con);
+mysqli_close($con);
 ?>

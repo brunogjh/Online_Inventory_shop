@@ -277,5 +277,5 @@ span.price {
 
 <?php
 include "footer.php";
-sqli_close($con);
+mysqli_close($con);
 ?>

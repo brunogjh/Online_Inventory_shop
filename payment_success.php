@@ -35,5 +35,5 @@ include "header.php";
 </html>
 
 <?php
-sqli_close($con);
+mysqli_close($con);
 ?>

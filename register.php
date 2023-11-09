@@ -130,7 +130,7 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 	
 }
 
-sqli_close($con);
+mysqli_close($con);
 
 ?>
 

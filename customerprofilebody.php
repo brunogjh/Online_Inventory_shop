@@ -122,5 +122,5 @@ include "header.php";
 
 <?php
 include "footer.php";
-sqli_close($con);
+mysqli_close($con);
 ?>

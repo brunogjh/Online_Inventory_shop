@@ -19,5 +19,5 @@ if(isset($BackToMyPage)) {
     header('Location: index.php'); // default page
 }
    
-sqli_close($con);
+mysqli_close($con);
 ?>
