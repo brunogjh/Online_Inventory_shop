@@ -1,7 +1,6 @@
 <?php
+include "header.php";       
 include "db.php";
-
-include "header.php";                         
 ?>
 <style>
 
@@ -277,4 +276,5 @@ span.price {
 
 <?php
 include "footer.php";
+mysqli_close($con);
 ?>

@@ -222,3 +222,6 @@ if(isset($_POST["get_seleted_Category"]) ||  isset($_POST["search"])){
 			";
 		}
 	}
+
+mysqli_close($con);
+?>

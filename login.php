@@ -99,5 +99,5 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     
 	
 }
-
+mysqli_close($con);
 ?>
