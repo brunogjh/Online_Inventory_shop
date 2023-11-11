@@ -1,7 +1,7 @@
 <?php
-include "db.php";
 require "./cache.php";
 include "header.php";
+include "db.php";
 ?>
 
 <!-- this is the part where i add the content for profile -->
@@ -122,4 +122,5 @@ include "header.php";
 
 <?php
 include "footer.php";
+mysqli_close($con);
 ?>

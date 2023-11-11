@@ -250,6 +250,7 @@ include "header.php";
 									$_SESSION['product_id'] = $row['product_id'];
 									}
 								} 
+								mysqli_close($con);
 								?>	
 								<?php
                     include 'db.php';
@@ -300,6 +301,7 @@ include "header.php";
         ;
       
 }
+mysqli_close($con);
 ?>
 					<!-- product -->
 					

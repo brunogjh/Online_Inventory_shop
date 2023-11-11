@@ -49,6 +49,7 @@ if (isset($_POST["email"])) {
 
         
     }
-    
+ 
 }
+mysqli_close($con);
 ?>

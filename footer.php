@@ -95,10 +95,10 @@
 
 
 		window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#LoggedIn';
-        window.location.reload();
-    }
+    // if(!window.location.hash) {
+    //     window.location = window.location + '#LoggedIn';
+    //     window.location.reload();
+    // }
 }
 	</script>
 	

@@ -189,5 +189,5 @@ if (isset($_SESSION["uid"])) {
 
 
 
-
+mysqli_close($con);
 ?>
