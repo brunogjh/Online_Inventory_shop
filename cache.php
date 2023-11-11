@@ -7,7 +7,7 @@ class CacheService {
     private $redis;
 
     public function __construct() {    
-        // read env filezzz
+        // read env file
         $s3 = new S3Client([
             'version'     => '2006-03-01',
             'region'      => 'ap-southeast-1'
